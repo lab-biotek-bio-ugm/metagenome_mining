@@ -13074,9 +13074,40 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Functional-Analysis-from-EBI-MGNify">Functional Analysis from EBI-MGNify<a class="anchor-link" href="#Functional-Analysis-from-EBI-MGNify">&#182;</a></h1><p><em>Matin Nuhamunada</em><sup>1*</sup></p>
+<p><sup>1</sup>Department of Tropical Biology, Universitas Gadjah Mada;<br>
+Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
+<p>*Correspondence: <a href="mailto:matin_nuhamunada@mail.ugm.ac.id">matin_nuhamunada@ugm.ac.id</a></p>
+<h2 id="Deskripsi-Data">Deskripsi Data<a class="anchor-link" href="#Deskripsi-Data">&#182;</a></h2><p>Ada tiga file yang dapat diakses dari hasil analisis fungsional EBI-MGnify: (<a href="https://emg-docs.readthedocs.io/en/latest/portal.html#description-of-functional-annotation-files-available-to-download">https://emg-docs.readthedocs.io/en/latest/portal.html#description-of-functional-annotation-files-available-to-download</a>)</p>
+<ol>
+<li><em>InterPro matches file</em>: it is a tab-delimited file containing 15 columns.</li>
+<li><em>Complete GO annotation file</em>: it is a comma-separated file containing 4 columns. The first column lists the GO terms (labelled GO:XXXXXXX) having been associated with the predicted CDSs. The second gives the GO term description while the third indicates which category the GO term belong to. There is 3 category: ‘biological process’ (higher biological process such as ‘rRNA modification’) , ‘molecular function’ (individual catalytic activity such as ‘mannosyltransferase activity’) and ‘cellular component’ (cellular localisation of the activity such as ‘mitochondrion’). The last column give the number of predicted CDSs having been annotated with the GO terms for the run.</li>
+<li><em>GO slim annotation file</em>: this file is derived from the ‘Complete GO annotation file’ and has the same format. The GO slim set is a cut-down version of the GO terms containing a subset of the terms in the whole GO. They give a broad overview of the ontology content without the details of the specific fine grained terms. Go slim terms are used for visualisation on the website. To illustrate how the GO slim terms relates to the GO terms, the different metal binding GO terms present in the ‘Complete GO annotation’ file are summarized as one generic metal binding term in the ‘GO slim annotation’ file. The last column give the number of predicted CDSs having been annotated with the GO slim terms for the run.</li>
+</ol>
+<h2 id="Challenge">Challenge<a class="anchor-link" href="#Challenge">&#182;</a></h2><ol>
+<li>Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori  sampel "metagenome" (hasil shotgun sequencing)</li>
+<li>Melakukan (a) filtering studi dan pemilihan sampel untuk studi komparatif, dan (b) mengambil metadata dari sampel terpilih</li>
+<li>Web Scraping menggunakan RESTful API dari EBI MGnify untuk mengunduh data hasil analisis fungsional (ketiga file di atas)</li>
+<li>Melakukan data cleaning dan eksplorasi data (visualisasi)</li>
+<li>Data mining dengan menggunakan analisis statistik: dengan dimensional reduction (PCoA, UMAP, T2SNE), dan teknik multivariat lainnya</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Load-Library">Load Library<a class="anchor-link" href="#Load-Library">&#182;</a></h2>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -13098,7 +13129,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Visualize-Functional-Analysis---Summary">Visualize Functional Analysis - Summary<a class="anchor-link" href="#Visualize-Functional-Analysis---Summary">&#182;</a></h1>
+<h2 id="Challenge-4-5">Challenge 4-5<a class="anchor-link" href="#Challenge-4-5">&#182;</a></h2><h3 id="5.1-Visualize-Functional-Analysis---Summary">5.1 Visualize Functional Analysis - Summary<a class="anchor-link" href="#5.1-Visualize-Functional-Analysis---Summary">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13462,7 +13493,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Detailed-GO">Detailed GO<a class="anchor-link" href="#Detailed-GO">&#182;</a></h1>
+<h3 id="5.2-Detailed-GO">5.2 Detailed GO<a class="anchor-link" href="#5.2-Detailed-GO">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -13826,7 +13857,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Interpro">Interpro<a class="anchor-link" href="#Interpro">&#182;</a></h1>
+<h3 id="5.3-Interpro">5.3 Interpro<a class="anchor-link" href="#5.3-Interpro">&#182;</a></h3>
 </div>
 </div>
 </div>
