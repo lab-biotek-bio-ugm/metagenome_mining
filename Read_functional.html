@@ -13129,6 +13129,913 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1">Challenge 1<a class="anchor-link" href="#Challenge-1">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#study data</span>
+<span class="n">study_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_study.csv&quot;</span><span class="p">)</span>
+<span class="n">study_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MGnify ID</th>
+      <th>ENA accession</th>
+      <th>Biome</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Samples</th>
+      <th>Analyses</th>
+      <th>Centre name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>MGYS00005037</td>
+      <td>PRJNA277905</td>
+      <td>Skin</td>
+      <td>Human Skin Microbiome Metagenome</td>
+      <td>Human Skin Microbiome</td>
+      <td>106</td>
+      <td>106</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>MGYS00001187</td>
+      <td>PRJEB14948</td>
+      <td>Skin</td>
+      <td>Microbiome samples derived from Buruli ulcer w...</td>
+      <td>Background: Buruli ulcer (BU) is an infectious...</td>
+      <td>14</td>
+      <td>14</td>
+      <td>Institute of tropical medicine</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MGYS00000518</td>
+      <td>PRJEB10133</td>
+      <td>Skin</td>
+      <td>These samples are selections from a larger coh...</td>
+      <td>These samples are selections from a larger coh...</td>
+      <td>10</td>
+      <td>10</td>
+      <td>GSTT BRC Bioinformatics</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>MGYS00005090</td>
+      <td>PRJEB33173</td>
+      <td>Naris</td>
+      <td>EMG produced TPA metagenomics fasta_path of th...</td>
+      <td>The PRJEB25223 Third Party Annotation (TPA) fa...</td>
+      <td>120</td>
+      <td>120</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MGYS00000604</td>
+      <td>PRJNA46333</td>
+      <td>Skin</td>
+      <td>Gene-Environment Interactions at the Skin Surface</td>
+      <td>16S rRNA gene sequences amplified from subject...</td>
+      <td>2560</td>
+      <td>4385</td>
+      <td>NIAMS</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>MGYS00005034</td>
+      <td>PRJEB29894</td>
+      <td>Skin</td>
+      <td>EMG produced TPA metagenomics assembly of the ...</td>
+      <td>The human skin metagenome Third Party Annotati...</td>
+      <td>33</td>
+      <td>33</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>MGYS00003598</td>
+      <td>PRJEB25958</td>
+      <td>Skin</td>
+      <td>EMG produced TPA metagenomics assembly of the ...</td>
+      <td>The human skin metagenome Third Party Annotati...</td>
+      <td>94</td>
+      <td>94</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>MGYS00002062</td>
+      <td>PRJEB22555</td>
+      <td>Skin</td>
+      <td>EMG produced TPA metagenomics assembly of the ...</td>
+      <td>The human wound Third Party Annotation (TPA) a...</td>
+      <td>13</td>
+      <td>21</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>MGYS00005098</td>
+      <td>PRJNA435265</td>
+      <td>Skin</td>
+      <td>Isolation and Identification of the Follicular...</td>
+      <td>In this study, we compare the both sequencing ...</td>
+      <td>101</td>
+      <td>101</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>MGYS00001295</td>
+      <td>PRJEB16723</td>
+      <td>Skin</td>
+      <td>Human skin bacterial and fungal microbiotas an...</td>
+      <td>Using high-throughput 16S rDNA and ITS1 sequen...</td>
+      <td>96</td>
+      <td>96</td>
+      <td>Universidade Federal do ABC</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>MGYS00002072</td>
+      <td>PRJEB17696</td>
+      <td>Skin</td>
+      <td>Longitudinal study of the diabetic skin and wo...</td>
+      <td>Background: Type II diabetes is a chronic heal...</td>
+      <td>258</td>
+      <td>258</td>
+      <td>The ithree institute</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>MGYS00005102</td>
+      <td>PRJEB26427</td>
+      <td>Skin</td>
+      <td>Understanding the microbial basis of body odor...</td>
+      <td>Metagenomics samples of multiple skin sites (u...</td>
+      <td>179</td>
+      <td>179</td>
+      <td>P&amp;G Singapore Innovation Center</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>MGYS00005101</td>
+      <td>PRJNA281366</td>
+      <td>Skin</td>
+      <td>Skin metagenomes</td>
+      <td>Skin shotgun metagenomes from psoriasis patients</td>
+      <td>73</td>
+      <td>73</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>MGYS00000605</td>
+      <td>PRJNA278873</td>
+      <td>Skin</td>
+      <td>Skin microbiome in human volunteers inoculated...</td>
+      <td>The aim of this project was to investigate the...</td>
+      <td>191</td>
+      <td>191</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>MGYS00000520</td>
+      <td>PRJEB10295</td>
+      <td>Skin</td>
+      <td>Whole genome sequencing of metagenomes extract...</td>
+      <td>Whole genome sequencing of metagenomes extract...</td>
+      <td>1</td>
+      <td>2</td>
+      <td>LEIDEN UNIVERSITY MEDICAL CENTER</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>MGYS00001818</td>
+      <td>PRJEB20777</td>
+      <td>Skin</td>
+      <td>Impact of the Mk VI SkinSuit on skin microbiot...</td>
+      <td>Microgravity induces physiological decondition...</td>
+      <td>204</td>
+      <td>204</td>
+      <td>LSHTM</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_sample.csv&quot;</span><span class="p">)</span>
+<span class="n">sample_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">description</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;Human Skin Metagenome&#39;
+ &#39;This sample has been submitted by Centre for Integrative Biology on 2015-05-02; human skin metagenome&#39;
+ &#39;Head_kid_1h&#39; &#39;Underarm_teen_8h&#39; &#39;Underarm_teen_1h&#39;
+ &#39;AD          upper_back                        UB      LES&#39;
+ &#39;not applicable&#39; &#39;Head_teen_8h&#39; &#39;Head_kid_8h&#39; &#39;Neck_kid_1h&#39;
+ &#39;This sample has been submitted by pda|jakehall1 on 2018-08-02; skin metagenome&#39;
+ &#39;TRL          lower_back                        LB  NON_LES&#39;
+ &#39;Head_teen_1h&#39; &#39;Neck_kid_8h&#39; &#39;Neck_teen_8h&#39; &#39;Underarm_kid_1h&#39;
+ &#39;Underarm_kid_8h&#39; &#39;Neck_teen_1h&#39;
+ &#39;AD     posterior_thigh                        PT  NON_LES&#39; &#39;P1709_1072&#39;
+ &#39;P752_123&#39; &#39;CTRL         thigh                         T  NON_LES&#39;
+ &#39;CTRL          lower_back                        LB  NON_LES&#39;
+ &#39;Palm WGS metagenome&#39;
+ &#39;PSO          lower_back                        LB      LES&#39;
+ &#39;AD     posterior_thigh                        PT      LES&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample_data</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Human Skin Metagenome&#39;</span><span class="p">]</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">filtered_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[17]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>MGnify ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>SRS731606</td>
+      <td>MGYS00000604</td>
+      <td>MET0253</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>SRS732144</td>
+      <td>MGYS00000604</td>
+      <td>MET0320</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>SRS731939</td>
+      <td>MGYS00000604</td>
+      <td>MET0273</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>SRS728263</td>
+      <td>MGYS00000604</td>
+      <td>MET0040</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>SRS727161</td>
+      <td>MGYS00000604</td>
+      <td>MET0007</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>SRS728309</td>
+      <td>MGYS00000604</td>
+      <td>MET0091</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>SRS729086</td>
+      <td>MGYS00000604</td>
+      <td>MET0186</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>SRS731408</td>
+      <td>MGYS00000604</td>
+      <td>MET0196</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>SRS727528</td>
+      <td>MGYS00000604</td>
+      <td>MET0025</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SRS728278</td>
+      <td>MGYS00000604</td>
+      <td>MET0055</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>SRS731558</td>
+      <td>MGYS00000604</td>
+      <td>MET0230</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>SRS728264</td>
+      <td>MGYS00000604</td>
+      <td>MET0041</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>SRS731940</td>
+      <td>MGYS00000604</td>
+      <td>MET0274</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>SRS728331</td>
+      <td>MGYS00000604</td>
+      <td>MET0113</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>SRS728315</td>
+      <td>MGYS00000604</td>
+      <td>MET0097</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>SRS727522</td>
+      <td>MGYS00000604</td>
+      <td>MET0017</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>SRS728265</td>
+      <td>MGYS00000604</td>
+      <td>MET0042</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>SRS731967</td>
+      <td>MGYS00000604</td>
+      <td>MET0295</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>SRS728302</td>
+      <td>MGYS00000604</td>
+      <td>MET0084</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>SRS728292</td>
+      <td>MGYS00000604</td>
+      <td>MET0068</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>SRS729085</td>
+      <td>MGYS00000604</td>
+      <td>MET0185</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>SRS728356</td>
+      <td>MGYS00000604</td>
+      <td>MET0141</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>SRS731955</td>
+      <td>MGYS00000604</td>
+      <td>MET0288</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>SRS728311</td>
+      <td>MGYS00000604</td>
+      <td>MET0093</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>SRS731607</td>
+      <td>MGYS00000604</td>
+      <td>MET0254</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>SRS731687</td>
+      <td>MGYS00000604</td>
+      <td>MET0258</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>SRS731529</td>
+      <td>MGYS00000604</td>
+      <td>MET0216</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>SRS728290</td>
+      <td>MGYS00000604</td>
+      <td>MET0066</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>SRS728284</td>
+      <td>MGYS00000604</td>
+      <td>MET0064</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>SRS728368</td>
+      <td>MGYS00000604</td>
+      <td>MET0163</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>261</th>
+      <td>SRS728540</td>
+      <td>MGYS00000604</td>
+      <td>MET0177</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>262</th>
+      <td>SRS731556</td>
+      <td>MGYS00000604</td>
+      <td>MET0229</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>263</th>
+      <td>SRS731427</td>
+      <td>MGYS00000604</td>
+      <td>MET0206</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>264</th>
+      <td>SRS727535</td>
+      <td>MGYS00000604</td>
+      <td>MET0033</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>265</th>
+      <td>SRS731946</td>
+      <td>MGYS00000604</td>
+      <td>MET0280</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>266</th>
+      <td>SRS729088</td>
+      <td>MGYS00000604</td>
+      <td>MET0188</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>267</th>
+      <td>SRS729090</td>
+      <td>MGYS00000604</td>
+      <td>MET0190</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>268</th>
+      <td>SRS731959</td>
+      <td>MGYS00000604</td>
+      <td>MET0292</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>269</th>
+      <td>SRS728313</td>
+      <td>MGYS00000604</td>
+      <td>MET0095</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>270</th>
+      <td>SRS728459</td>
+      <td>MGYS00000604</td>
+      <td>MET0172</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>271</th>
+      <td>SRS731592</td>
+      <td>MGYS00000604</td>
+      <td>MET0238</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>272</th>
+      <td>SRS731933</td>
+      <td>MGYS00000604</td>
+      <td>MET0267</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>273</th>
+      <td>SRS731551</td>
+      <td>MGYS00000604</td>
+      <td>MET0226</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>274</th>
+      <td>SRS728341</td>
+      <td>MGYS00000604</td>
+      <td>MET0123</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>275</th>
+      <td>SRS732097</td>
+      <td>MGYS00000604</td>
+      <td>MET0311</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>276</th>
+      <td>SRS728319</td>
+      <td>MGYS00000604</td>
+      <td>MET0100</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>277</th>
+      <td>SRS731970</td>
+      <td>MGYS00000604</td>
+      <td>MET0298</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>278</th>
+      <td>SRS731430</td>
+      <td>MGYS00000604</td>
+      <td>MET0209</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>279</th>
+      <td>SRS731432</td>
+      <td>MGYS00000604</td>
+      <td>MET0211</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>280</th>
+      <td>SRS731691</td>
+      <td>MGYS00000604</td>
+      <td>MET0262</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>281</th>
+      <td>SRS728323</td>
+      <td>MGYS00000604</td>
+      <td>MET0105</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>282</th>
+      <td>SRS728451</td>
+      <td>MGYS00000604</td>
+      <td>MET0164</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>283</th>
+      <td>SRS728269</td>
+      <td>MGYS00000604</td>
+      <td>MET0046</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>284</th>
+      <td>SRS728277</td>
+      <td>MGYS00000604</td>
+      <td>MET0054</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>285</th>
+      <td>SRS728340</td>
+      <td>MGYS00000604</td>
+      <td>MET0122</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>286</th>
+      <td>SRS731560</td>
+      <td>MGYS00000604</td>
+      <td>MET0232</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>287</th>
+      <td>SRS728336</td>
+      <td>MGYS00000604</td>
+      <td>MET0118</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>288</th>
+      <td>SRS731552</td>
+      <td>MGYS00000604</td>
+      <td>MET0224</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>289</th>
+      <td>SRS731932</td>
+      <td>MGYS00000604</td>
+      <td>MET0265</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <th>290</th>
+      <td>SRS728453</td>
+      <td>MGYS00000604</td>
+      <td>MET0166</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+  </tbody>
+</table>
+<p>291 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2">Challenge 2<a class="anchor-link" href="#Challenge-2">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">jsonapi_client</span> <span class="k">import</span> <span class="n">Session</span><span class="p">,</span> <span class="n">Filter</span>
+<span class="kn">import</span> <span class="nn">pycurl</span>
+<span class="kn">import</span> <span class="nn">html</span>
+
+<span class="n">API_BASE</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>                       Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-18-ec9a96e5ca21&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span><span class="ansi-green-intense-fg ansi-bold">from</span> jsonapi_client <span class="ansi-green-intense-fg ansi-bold">import</span> Session<span class="ansi-yellow-intense-fg ansi-bold">,</span> Filter
+<span class="ansi-green-fg">      2</span> <span class="ansi-green-intense-fg ansi-bold">import</span> pycurl
+<span class="ansi-green-fg">      3</span> <span class="ansi-green-intense-fg ansi-bold">import</span> html
+<span class="ansi-green-fg">      4</span> 
+<span class="ansi-green-fg">      5</span> API_BASE <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/&#39;</span>
+
+<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>: No module named &#39;jsonapi_client&#39;</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Updated</span>
+<span class="k">def</span> <span class="nf">get_study</span><span class="p">(</span><span class="n">search</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">c</span> <span class="o">=</span> <span class="n">pycurl</span><span class="o">.</span><span class="n">Curl</span><span class="p">()</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">setopt</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">URL</span><span class="p">,</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/v1/studies?lineage=root&amp;ordering=-last_update&amp;search=&#39;</span><span class="o">+</span><span class="n">search</span><span class="o">+</span><span class="s1">&#39;&amp;format=csv&#39;</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">setopt</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">WRITEDATA</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">perform</span><span class="p">()</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">filename</span>
+
+<span class="k">def</span> <span class="nf">get_metadata</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;key&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+            <span class="n">unit</span> <span class="o">=</span> <span class="n">html</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">m</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">])</span> <span class="k">if</span> <span class="n">m</span><span class="p">[</span><span class="s1">&#39;unit&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+            <span class="k">return</span> <span class="s2">&quot;</span><span class="si">{value}</span><span class="s2"> </span><span class="si">{unit}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">unit</span><span class="o">=</span><span class="n">unit</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">None</span>
+
+<span class="k">def</span> <span class="nf">get_analysis_result</span><span class="p">(</span><span class="n">run</span><span class="p">,</span> <span class="n">extension</span><span class="p">):</span>
+    <span class="n">API_BASE_RUN</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/runs&#39;</span>
+    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">API_BASE_RUN</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">run</span><span class="p">,</span><span class="s1">&#39;analysis&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resource</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">study</span><span class="o">.</span><span class="n">downloads</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">file_format</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span>
+                <span class="n">link</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">url</span>
+    <span class="k">return</span> <span class="n">link</span>
+
+<span class="c1">#perlu diupdate utk rhizosfer</span>
+<span class="k">def</span> <span class="nf">random_sampling</span><span class="p">(</span><span class="n">dataframe</span><span class="p">,</span> <span class="n">amount</span><span class="p">):</span>
+    <span class="n">df_random</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;Sample_ID&#39;</span><span class="p">,</span><span class="s1">&#39;Run_ID&#39;</span><span class="p">,</span><span class="s1">&#39;Release_version&#39;</span><span class="p">,</span><span class="s1">&#39;Sex&#39;</span><span class="p">,</span><span class="s1">&#39;Body_site&#39;</span><span class="p">,</span> <span class="s1">&#39;Description&#39;</span><span class="p">))</span>
+    <span class="n">df_random</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;No&#39;</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">a</span> <span class="o">&lt;</span> <span class="n">amount</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">container</span> <span class="o">=</span> <span class="n">df_random</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Sample_ID&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">container</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Sample_ID&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
+            <span class="n">df_random</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[</span><span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Sample_ID&#39;</span><span class="p">],</span> \
+                                   <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Run_ID&#39;</span><span class="p">],</span> \
+                                   <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Release_version&#39;</span><span class="p">],</span> \
+                                   <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Sex&#39;</span><span class="p">],</span> \
+                                   <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Body_site&#39;</span><span class="p">],</span> \
+                                   <span class="n">dataframe</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s1">&#39;Description&#39;</span><span class="p">]</span>\
+                                  <span class="p">]</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">df_random</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Challenge-4-5">Challenge 4-5<a class="anchor-link" href="#Challenge-4-5">&#182;</a></h2><h3 id="5.1-Visualize-Functional-Analysis---Summary">5.1 Visualize Functional Analysis - Summary<a class="anchor-link" href="#5.1-Visualize-Functional-Analysis---Summary">&#182;</a></h3>
 </div>
 </div>

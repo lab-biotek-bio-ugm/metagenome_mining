@@ -41,6 +41,96 @@ import seaborn as sns
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
+# ## Challenge 1
+
+# In[8]:
+
+
+#study data
+study_data = pd.read_csv("data_study.csv")
+study_data
+
+
+# In[14]:
+
+
+sample_data = pd.read_csv("data_sample.csv")
+sample_data.sort_values('Description', ascending=False)
+description = sample_data.Description.unique()
+print(description)
+
+
+# In[17]:
+
+
+filtered_data = sample_data.loc[sample_data['Description'] == 'Human Skin Metagenome']
+filtered_data = filtered_data.reset_index(drop=True)
+filtered_data
+
+
+# ## Challenge 2
+
+# In[18]:
+
+
+from jsonapi_client import Session, Filter
+import pycurl
+import html
+
+API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest/'
+
+
+# In[19]:
+
+
+# Updated
+def get_study(search, filename):
+    if not os.path.isfile(filename):
+        with open(filename, 'wb') as f:
+            c = pycurl.Curl()
+            c.setopt(c.URL, 'https://www.ebi.ac.uk/metagenomics/api/v1/studies?lineage=root&ordering=-last_update&search='+search+'&format=csv')
+            c.setopt(c.WRITEDATA, f)
+            c.perform()
+            c.close()
+    return filename
+
+def get_metadata(metadata, key):
+    for m in metadata:
+        if m['key'].lower() == key.lower():
+            value = m['value']
+            unit = html.unescape(m['unit']) if m['unit'] else ""
+            return "{value} {unit}".format(value=value, unit=unit)
+    return None
+
+def get_analysis_result(run, extension):
+    API_BASE_RUN = 'https://www.ebi.ac.uk/metagenomics/api/latest/runs'
+    with Session(API_BASE_RUN) as s:
+        study = s.get(run,'analysis').resource
+        for i in study.downloads:
+            if extension in i.file_format['name']:
+                link = i.url
+    return link
+
+#perlu diupdate utk rhizosfer
+def random_sampling(dataframe, amount):
+    df_random = DataFrame(columns=('Sample_ID','Run_ID','Release_version','Sex','Body_site', 'Description'))
+    df_random.index.name = 'No'
+    a = 0
+    while a < amount:
+        i = np.random.choice(dataframe.index.values, 1)
+        container = df_random.loc[:, 'Sample_ID']
+        if not container.isin([dataframe.loc[i[0], 'Sample_ID']]).any():
+            df_random.loc[i[0]] = [dataframe.loc[i[0], 'Sample_ID'],                                    dataframe.loc[i[0], 'Run_ID'],                                    dataframe.loc[i[0], 'Release_version'],                                    dataframe.loc[i[0], 'Sex'],                                    dataframe.loc[i[0], 'Body_site'],                                    dataframe.loc[i[0], 'Description']                                  ]
+            a = a + 1
+    return df_random
+
+
+# In[ ]:
+
+
+
+
+
 # ## Challenge 4-5 
 # ### 5.1 Visualize Functional Analysis - Summary
 
