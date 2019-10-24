@@ -3,21 +3,21 @@
 
 # # Functional Analysis from EBI-MGNify
 # 
-# _Matin Nuhamunada_<sup>1*</sup>
+# _Matin Nuhamunada_<sup>1*</sup>, _Ahmad Ardi_<sup>1*</sup>
 # 
 # <sup>1</sup>Department of Tropical Biology, Universitas Gadjah Mada;   
 # Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;   
 # 
 # *Correspondence: [matin_nuhamunada@ugm.ac.id](mailto:matin_nuhamunada@mail.ugm.ac.id)  
 # 
-# ## Deskripsi Data
+# ## A. Deskripsi Data
 # Ada tiga file yang dapat diakses dari hasil analisis fungsional EBI-MGnify: (https://emg-docs.readthedocs.io/en/latest/portal.html#description-of-functional-annotation-files-available-to-download)
 # 
 # 1. *InterPro matches file*: it is a tab-delimited file containing 15 columns.
 # 2. *Complete GO annotation file*: it is a comma-separated file containing 4 columns. The first column lists the GO terms (labelled GO:XXXXXXX) having been associated with the predicted CDSs. The second gives the GO term description while the third indicates which category the GO term belong to. There is 3 category: ‘biological process’ (higher biological process such as ‘rRNA modification’) , ‘molecular function’ (individual catalytic activity such as ‘mannosyltransferase activity’) and ‘cellular component’ (cellular localisation of the activity such as ‘mitochondrion’). The last column give the number of predicted CDSs having been annotated with the GO terms for the run.
 # 3. *GO slim annotation file*: this file is derived from the ‘Complete GO annotation file’ and has the same format. The GO slim set is a cut-down version of the GO terms containing a subset of the terms in the whole GO. They give a broad overview of the ontology content without the details of the specific fine grained terms. Go slim terms are used for visualisation on the website. To illustrate how the GO slim terms relates to the GO terms, the different metal binding GO terms present in the ‘Complete GO annotation’ file are summarized as one generic metal binding term in the ‘GO slim annotation’ file. The last column give the number of predicted CDSs having been annotated with the GO slim terms for the run.
 # 
-# ## Challenge
+# ## B. Challenge
 # 1. Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori  sampel "metagenome" (hasil shotgun sequencing)
 # 2. Melakukan (a) filtering studi dan pemilihan sampel untuk studi komparatif, dan (b) mengambil metadata dari sampel terpilih
 # 3. Web Scraping menggunakan RESTful API dari EBI MGnify untuk mengunduh data hasil analisis fungsional (ketiga file di atas)
@@ -25,7 +25,7 @@
 # 5. Data mining dengan menggunakan analisis statistik: dengan dimensional reduction (PCoA, UMAP, T2SNE), dan teknik multivariat lainnya
 # 
 
-# ## Load Library
+# ## C. Load Library
 
 # In[1]:
 
@@ -41,10 +41,10 @@ import seaborn as sns
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# ## Challenge 1 - Exploratory Data Analysis
+# ## D. Challenge 1 - Exploratory Data Analysis
 # Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori sampel "metagenome" (hasil shotgun sequencing)
 
-# ### Study
+# ### D.1 Study
 # Pada part ini kita akan mencoba melihat ada berapa banyak studi terkait dengan Human Skin di EBI MGnify
 
 # In[1]:
@@ -53,7 +53,7 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 #obtaining study data - TO DO!
 
 
-# In[4]:
+# In[13]:
 
 
 #load study data
@@ -61,25 +61,32 @@ study_data = pd.read_csv("data_study.csv")
 study_data
 
 
-# In[5]:
+# In[30]:
 
 
 print(study_data.describe())
+print('\n' + 'Total sampel: ' + str(study_data.Samples.sum()) + '\n')
 print('Centers : ' + str(len(study_data['Centre name'].unique())))
-print(study_data['Centre name'].unique())
+x = 0
+for i in study_data['Centre name'].unique():
+    x = x + 1
+    print(str(x) + ' ' + i)
 
 
-# ### Samples
+# ### D.2 Kesimpulan Studi
+# Diperoleh 15 studi di EBI yang dilakukan dari 10 institusi, dengan total sampel terkait human skin microbiome sebanyak 4053
+
+# ## D.3 Samples
 # Pada part ini kita akan melihat sampel apa saja yang tersedia untuk human skin metagenome
 
-# In[3]:
+# In[31]:
 
 
 # Load samples
 sample_data = pd.read_csv("data_sample.csv")
 
 
-# In[6]:
+# In[32]:
 
 
 # Rapikan label
@@ -89,7 +96,7 @@ for i in sample_data.Description:
     label.append(y)
 
 
-# In[7]:
+# In[33]:
 
 
 # Replace label
@@ -98,55 +105,70 @@ for x in range(len(sample_data)):
 sample_data.head()
 
 
-# In[10]:
+# In[34]:
 
 
-sample_data.Description.unique()
+x = 0
+for i in sample_data.Description.unique():
+    x = x + 1
+    print(str(x) + ' ' + i)
 
 
-# In[9]:
+# In[66]:
 
 
-sample_data.describe()
+sample_data.groupby(['MGnify ID']).describe()
 
 
-# In[10]:
+# In[68]:
+
+
+sample_data['MGnify ID'].count()
+
+
+# In[53]:
 
 
 study_id = sample_data['MGnify ID'].unique()
-print(study_id)
 study_id_clean = []
 for x in study_id:
     y = x.split(',')
     for z in y:
         study_id_clean.append(z)
 study_id_clean = list(dict.fromkeys(study_id_clean))
-print(study_id_clean)
 
 
-# In[11]:
+# In[38]:
+
+
+x = 0
+for i in study_id_clean:
+    x = x + 1
+    print(str(x) + ' ' + i)
+
+
+# In[44]:
 
 
 df = study_data.loc[study_data['MGnify ID'].isin(study_id_clean)]
-df
+df.reset_index(drop=True)
 
 
-# In[12]:
+# ### Kesimpulan
+# Hanya ada 9 Studi terkait data metagenome
+
+# ### Ambil Metadata
+
+# In[73]:
 
 
-df.describe()
+study_id
 
 
-# In[ ]:
+# In[74]:
 
 
-sample
-
-
-# In[13]:
-
-
-filtered_data = sample_data.loc[sample_data['Description'] == label[0]]
+filtered_data = sample_data.loc[sample_data['MGnify ID'] == study_id[0]] #ganti nomor ini dari study id
 filtered_data = filtered_data.reset_index(drop=True)
 filtered_data
 
