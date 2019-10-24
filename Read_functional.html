@@ -13017,6 +13017,45 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
+<style type="text/css">
+    
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+
+    </style>
 
 
 <style type="text/css">
@@ -13107,7 +13146,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -13129,16 +13168,38 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-1">Challenge 1<a class="anchor-link" href="#Challenge-1">&#182;</a></h2>
+<h2 id="Challenge-1---Exploratory-Data-Analysis">Challenge 1 - Exploratory Data Analysis<a class="anchor-link" href="#Challenge-1---Exploratory-Data-Analysis">&#182;</a></h2><p>Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori sampel "metagenome" (hasil shotgun sequencing)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Study">Study<a class="anchor-link" href="#Study">&#182;</a></h3><p>Pada part ini kita akan mencoba melihat ada berapa banyak studi terkait dengan Human Skin di EBI MGnify</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#study data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#obtaining study data - TO DO!</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#load study data</span>
 <span class="n">study_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_study.csv&quot;</span><span class="p">)</span>
 <span class="n">study_data</span>
 </pre></div>
@@ -13153,7 +13214,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13188,7 +13249,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>MGYS00005037</td>
       <td>PRJNA277905</td>
       <td>Skin</td>
@@ -13199,7 +13260,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>BioProject</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
       <td>MGYS00001187</td>
       <td>PRJEB14948</td>
       <td>Skin</td>
@@ -13210,7 +13271,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>Institute of tropical medicine</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>2</td>
       <td>MGYS00000518</td>
       <td>PRJEB10133</td>
       <td>Skin</td>
@@ -13221,7 +13282,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>GSTT BRC Bioinformatics</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>MGYS00005090</td>
       <td>PRJEB33173</td>
       <td>Naris</td>
@@ -13232,7 +13293,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>EMG</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>MGYS00000604</td>
       <td>PRJNA46333</td>
       <td>Skin</td>
@@ -13243,7 +13304,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>NIAMS</td>
     </tr>
     <tr>
-      <th>5</th>
+      <td>5</td>
       <td>MGYS00005034</td>
       <td>PRJEB29894</td>
       <td>Skin</td>
@@ -13254,7 +13315,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>EMG</td>
     </tr>
     <tr>
-      <th>6</th>
+      <td>6</td>
       <td>MGYS00003598</td>
       <td>PRJEB25958</td>
       <td>Skin</td>
@@ -13265,7 +13326,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>EMG</td>
     </tr>
     <tr>
-      <th>7</th>
+      <td>7</td>
       <td>MGYS00002062</td>
       <td>PRJEB22555</td>
       <td>Skin</td>
@@ -13276,7 +13337,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>EMG</td>
     </tr>
     <tr>
-      <th>8</th>
+      <td>8</td>
       <td>MGYS00005098</td>
       <td>PRJNA435265</td>
       <td>Skin</td>
@@ -13287,7 +13348,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>BioProject</td>
     </tr>
     <tr>
-      <th>9</th>
+      <td>9</td>
       <td>MGYS00001295</td>
       <td>PRJEB16723</td>
       <td>Skin</td>
@@ -13298,7 +13359,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>Universidade Federal do ABC</td>
     </tr>
     <tr>
-      <th>10</th>
+      <td>10</td>
       <td>MGYS00002072</td>
       <td>PRJEB17696</td>
       <td>Skin</td>
@@ -13309,7 +13370,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>The ithree institute</td>
     </tr>
     <tr>
-      <th>11</th>
+      <td>11</td>
       <td>MGYS00005102</td>
       <td>PRJEB26427</td>
       <td>Skin</td>
@@ -13320,7 +13381,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>P&amp;G Singapore Innovation Center</td>
     </tr>
     <tr>
-      <th>12</th>
+      <td>12</td>
       <td>MGYS00005101</td>
       <td>PRJNA281366</td>
       <td>Skin</td>
@@ -13331,7 +13392,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>BioProject</td>
     </tr>
     <tr>
-      <th>13</th>
+      <td>13</td>
       <td>MGYS00000605</td>
       <td>PRJNA278873</td>
       <td>Skin</td>
@@ -13342,7 +13403,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>BioProject</td>
     </tr>
     <tr>
-      <th>14</th>
+      <td>14</td>
       <td>MGYS00000520</td>
       <td>PRJEB10295</td>
       <td>Skin</td>
@@ -13353,7 +13414,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
       <td>LEIDEN UNIVERSITY MEDICAL CENTER</td>
     </tr>
     <tr>
-      <th>15</th>
+      <td>15</td>
       <td>MGYS00001818</td>
       <td>PRJEB20777</td>
       <td>Skin</td>
@@ -13376,13 +13437,12 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_sample.csv&quot;</span><span class="p">)</span>
-<span class="n">sample_data</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;Description&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">description</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">description</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">study_data</span><span class="o">.</span><span class="n">describe</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Centers : &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">study_data</span><span class="p">[</span><span class="s1">&#39;Centre name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">study_data</span><span class="p">[</span><span class="s1">&#39;Centre name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -13399,21 +13459,20 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[&#39;Human Skin Metagenome&#39;
- &#39;This sample has been submitted by Centre for Integrative Biology on 2015-05-02; human skin metagenome&#39;
- &#39;Head_kid_1h&#39; &#39;Underarm_teen_8h&#39; &#39;Underarm_teen_1h&#39;
- &#39;AD          upper_back                        UB      LES&#39;
- &#39;not applicable&#39; &#39;Head_teen_8h&#39; &#39;Head_kid_8h&#39; &#39;Neck_kid_1h&#39;
- &#39;This sample has been submitted by pda|jakehall1 on 2018-08-02; skin metagenome&#39;
- &#39;TRL          lower_back                        LB  NON_LES&#39;
- &#39;Head_teen_1h&#39; &#39;Neck_kid_8h&#39; &#39;Neck_teen_8h&#39; &#39;Underarm_kid_1h&#39;
- &#39;Underarm_kid_8h&#39; &#39;Neck_teen_1h&#39;
- &#39;AD     posterior_thigh                        PT  NON_LES&#39; &#39;P1709_1072&#39;
- &#39;P752_123&#39; &#39;CTRL         thigh                         T  NON_LES&#39;
- &#39;CTRL          lower_back                        LB  NON_LES&#39;
- &#39;Palm WGS metagenome&#39;
- &#39;PSO          lower_back                        LB      LES&#39;
- &#39;AD     posterior_thigh                        PT      LES&#39;]
+<pre>           Samples     Analyses
+count    16.000000    16.000000
+mean    253.312500   367.937500
+std     619.913942  1073.931312
+min       1.000000     2.000000
+25%      28.250000    30.000000
+50%      98.500000    98.500000
+75%     182.000000   182.000000
+max    2560.000000  4385.000000
+Centers : 10
+[&#39;BioProject&#39; &#39;Institute of tropical medicine&#39; &#39;GSTT BRC Bioinformatics&#39;
+ &#39;EMG&#39; &#39;NIAMS&#39; &#39;Universidade Federal do ABC&#39; &#39;The ithree institute&#39;
+ &#39;P&amp;G Singapore Innovation Center&#39; &#39;LEIDEN UNIVERSITY MEDICAL CENTER&#39;
+ &#39;LSHTM&#39;]
 </pre>
 </div>
 </div>
@@ -13422,14 +13481,54 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Samples">Samples<a class="anchor-link" href="#Samples">&#182;</a></h3><p>Pada part ini kita akan melihat sampel apa saja yang tersedia untuk human skin metagenome</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample_data</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Human Skin Metagenome&#39;</span><span class="p">]</span>
-<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">filtered_data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load samples</span>
+<span class="n">sample_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;data_sample.csv&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Rapikan label</span>
+<span class="n">label</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">Description</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">i</span><span class="o">.</span><span class="n">split</span><span class="p">())</span>
+    <span class="n">label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Replace label</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sample_data</span><span class="p">)):</span>
+    <span class="n">sample_data</span><span class="o">.</span><span class="n">Description</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="o">=</span> <span class="n">label</span><span class="p">[</span><span class="n">x</span><span class="p">]</span>
+<span class="n">sample_data</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13442,7 +13541,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13473,427 +13572,618 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
+      <td>0</td>
       <td>SRS731606</td>
       <td>MGYS00000604</td>
       <td>MET0253</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>1</th>
+      <td>1</td>
+      <td>SRS927202</td>
+      <td>MGYS00005034,MGYS00005101</td>
+      <td>SKCT13_b2_58</td>
+      <td>This sample has been submitted by Centre for I...</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>SRS927151</td>
+      <td>MGYS00005034,MGYS00005101</td>
+      <td>SKCT13_b2_29</td>
+      <td>This sample has been submitted by Centre for I...</td>
+    </tr>
+    <tr>
+      <td>3</td>
       <td>SRS732144</td>
       <td>MGYS00000604</td>
       <td>MET0320</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>2</th>
+      <td>4</td>
+      <td>ERS2431693</td>
+      <td>MGYS00005102</td>
+      <td>MBS490</td>
+      <td>Head_kid_1h</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_data</span><span class="o">.</span><span class="n">Description</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;Human Skin Metagenome&#39;,
+       &#39;This sample has been submitted by Centre for Integrative Biology on 2015-05-02; human skin metagenome&#39;,
+       &#39;Head_kid_1h&#39;, &#39;Underarm_teen_8h&#39;, &#39;Underarm_teen_1h&#39;,
+       &#39;AD upper_back UB LES&#39;, &#39;not applicable&#39;, &#39;Head_teen_8h&#39;,
+       &#39;Head_kid_8h&#39;, &#39;Neck_kid_1h&#39;,
+       &#39;This sample has been submitted by pda|jakehall1 on 2018-08-02; skin metagenome&#39;,
+       &#39;TRL lower_back LB NON_LES&#39;, &#39;Head_teen_1h&#39;, &#39;Neck_kid_8h&#39;,
+       &#39;Neck_teen_8h&#39;, &#39;Underarm_kid_1h&#39;, &#39;Underarm_kid_8h&#39;,
+       &#39;Neck_teen_1h&#39;, &#39;AD posterior_thigh PT NON_LES&#39;, &#39;P1709_1072&#39;,
+       &#39;P752_123&#39;, &#39;CTRL thigh T NON_LES&#39;, &#39;CTRL lower_back LB NON_LES&#39;,
+       &#39;Palm WGS metagenome&#39;, &#39;PSO lower_back LB LES&#39;,
+       &#39;AD posterior_thigh PT LES&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[9]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>MGnify ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>692</td>
+      <td>692</td>
+      <td>692</td>
+      <td>692</td>
+    </tr>
+    <tr>
+      <td>unique</td>
+      <td>692</td>
+      <td>8</td>
+      <td>692</td>
+      <td>26</td>
+    </tr>
+    <tr>
+      <td>top</td>
+      <td>SRS728339</td>
+      <td>MGYS00000604</td>
+      <td>AN06_Glue_WGS</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <td>freq</td>
+      <td>1</td>
+      <td>291</td>
+      <td>1</td>
+      <td>291</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">study_id</span> <span class="o">=</span> <span class="n">sample_data</span><span class="p">[</span><span class="s1">&#39;MGnify ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">study_id</span><span class="p">)</span>
+<span class="n">study_id_clean</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">study_id</span><span class="p">:</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+        <span class="n">study_id_clean</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">study_id_clean</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">dict</span><span class="o">.</span><span class="n">fromkeys</span><span class="p">(</span><span class="n">study_id_clean</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">study_id_clean</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;MGYS00000604&#39; &#39;MGYS00005034,MGYS00005101&#39; &#39;MGYS00005102&#39; &#39;MGYS00005101&#39;
+ &#39;MGYS00000518&#39; &#39;MGYS00003598,MGYS00005037&#39; &#39;MGYS00005098&#39; &#39;MGYS00000520&#39;]
+[&#39;MGYS00000604&#39;, &#39;MGYS00005034&#39;, &#39;MGYS00005101&#39;, &#39;MGYS00005102&#39;, &#39;MGYS00000518&#39;, &#39;MGYS00003598&#39;, &#39;MGYS00005037&#39;, &#39;MGYS00005098&#39;, &#39;MGYS00000520&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">study_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">study_data</span><span class="p">[</span><span class="s1">&#39;MGnify ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">study_id_clean</span><span class="p">)]</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MGnify ID</th>
+      <th>ENA accession</th>
+      <th>Biome</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Samples</th>
+      <th>Analyses</th>
+      <th>Centre name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>MGYS00005037</td>
+      <td>PRJNA277905</td>
+      <td>Skin</td>
+      <td>Human Skin Microbiome Metagenome</td>
+      <td>Human Skin Microbiome</td>
+      <td>106</td>
+      <td>106</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>MGYS00000518</td>
+      <td>PRJEB10133</td>
+      <td>Skin</td>
+      <td>These samples are selections from a larger coh...</td>
+      <td>These samples are selections from a larger coh...</td>
+      <td>10</td>
+      <td>10</td>
+      <td>GSTT BRC Bioinformatics</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>MGYS00000604</td>
+      <td>PRJNA46333</td>
+      <td>Skin</td>
+      <td>Gene-Environment Interactions at the Skin Surface</td>
+      <td>16S rRNA gene sequences amplified from subject...</td>
+      <td>2560</td>
+      <td>4385</td>
+      <td>NIAMS</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>MGYS00005034</td>
+      <td>PRJEB29894</td>
+      <td>Skin</td>
+      <td>EMG produced TPA metagenomics assembly of the ...</td>
+      <td>The human skin metagenome Third Party Annotati...</td>
+      <td>33</td>
+      <td>33</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>MGYS00003598</td>
+      <td>PRJEB25958</td>
+      <td>Skin</td>
+      <td>EMG produced TPA metagenomics assembly of the ...</td>
+      <td>The human skin metagenome Third Party Annotati...</td>
+      <td>94</td>
+      <td>94</td>
+      <td>EMG</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>MGYS00005098</td>
+      <td>PRJNA435265</td>
+      <td>Skin</td>
+      <td>Isolation and Identification of the Follicular...</td>
+      <td>In this study, we compare the both sequencing ...</td>
+      <td>101</td>
+      <td>101</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>MGYS00005102</td>
+      <td>PRJEB26427</td>
+      <td>Skin</td>
+      <td>Understanding the microbial basis of body odor...</td>
+      <td>Metagenomics samples of multiple skin sites (u...</td>
+      <td>179</td>
+      <td>179</td>
+      <td>P&amp;G Singapore Innovation Center</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>MGYS00005101</td>
+      <td>PRJNA281366</td>
+      <td>Skin</td>
+      <td>Skin metagenomes</td>
+      <td>Skin shotgun metagenomes from psoriasis patients</td>
+      <td>73</td>
+      <td>73</td>
+      <td>BioProject</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>MGYS00000520</td>
+      <td>PRJEB10295</td>
+      <td>Skin</td>
+      <td>Whole genome sequencing of metagenomes extract...</td>
+      <td>Whole genome sequencing of metagenomes extract...</td>
+      <td>1</td>
+      <td>2</td>
+      <td>LEIDEN UNIVERSITY MEDICAL CENTER</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Samples</th>
+      <th>Analyses</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>count</td>
+      <td>9.000000</td>
+      <td>9.000000</td>
+    </tr>
+    <tr>
+      <td>mean</td>
+      <td>350.777778</td>
+      <td>553.666667</td>
+    </tr>
+    <tr>
+      <td>std</td>
+      <td>830.288170</td>
+      <td>1437.799534</td>
+    </tr>
+    <tr>
+      <td>min</td>
+      <td>1.000000</td>
+      <td>2.000000</td>
+    </tr>
+    <tr>
+      <td>25%</td>
+      <td>33.000000</td>
+      <td>33.000000</td>
+    </tr>
+    <tr>
+      <td>50%</td>
+      <td>94.000000</td>
+      <td>94.000000</td>
+    </tr>
+    <tr>
+      <td>75%</td>
+      <td>106.000000</td>
+      <td>106.000000</td>
+    </tr>
+    <tr>
+      <td>max</td>
+      <td>2560.000000</td>
+      <td>4385.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">filtered_data</span> <span class="o">=</span> <span class="n">sample_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">sample_data</span><span class="p">[</span><span class="s1">&#39;Description&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">label</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">filtered_data</span> <span class="o">=</span> <span class="n">filtered_data</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">filtered_data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[13]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sample</th>
+      <th>MGnify ID</th>
+      <th>Name</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>SRS731606</td>
+      <td>MGYS00000604</td>
+      <td>MET0253</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>SRS732144</td>
+      <td>MGYS00000604</td>
+      <td>MET0320</td>
+      <td>Human Skin Metagenome</td>
+    </tr>
+    <tr>
+      <td>2</td>
       <td>SRS731939</td>
       <td>MGYS00000604</td>
       <td>MET0273</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>3</th>
+      <td>3</td>
       <td>SRS728263</td>
       <td>MGYS00000604</td>
       <td>MET0040</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>4</th>
+      <td>4</td>
       <td>SRS727161</td>
       <td>MGYS00000604</td>
       <td>MET0007</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>SRS728309</td>
-      <td>MGYS00000604</td>
-      <td>MET0091</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>SRS729086</td>
-      <td>MGYS00000604</td>
-      <td>MET0186</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>SRS731408</td>
-      <td>MGYS00000604</td>
-      <td>MET0196</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>SRS727528</td>
-      <td>MGYS00000604</td>
-      <td>MET0025</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>SRS728278</td>
-      <td>MGYS00000604</td>
-      <td>MET0055</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>SRS731558</td>
-      <td>MGYS00000604</td>
-      <td>MET0230</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>SRS728264</td>
-      <td>MGYS00000604</td>
-      <td>MET0041</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>SRS731940</td>
-      <td>MGYS00000604</td>
-      <td>MET0274</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>SRS728331</td>
-      <td>MGYS00000604</td>
-      <td>MET0113</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>SRS728315</td>
-      <td>MGYS00000604</td>
-      <td>MET0097</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>SRS727522</td>
-      <td>MGYS00000604</td>
-      <td>MET0017</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>SRS728265</td>
-      <td>MGYS00000604</td>
-      <td>MET0042</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>SRS731967</td>
-      <td>MGYS00000604</td>
-      <td>MET0295</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>SRS728302</td>
-      <td>MGYS00000604</td>
-      <td>MET0084</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>SRS728292</td>
-      <td>MGYS00000604</td>
-      <td>MET0068</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>20</th>
-      <td>SRS729085</td>
-      <td>MGYS00000604</td>
-      <td>MET0185</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>21</th>
-      <td>SRS728356</td>
-      <td>MGYS00000604</td>
-      <td>MET0141</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>22</th>
-      <td>SRS731955</td>
-      <td>MGYS00000604</td>
-      <td>MET0288</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>23</th>
-      <td>SRS728311</td>
-      <td>MGYS00000604</td>
-      <td>MET0093</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>24</th>
-      <td>SRS731607</td>
-      <td>MGYS00000604</td>
-      <td>MET0254</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>25</th>
-      <td>SRS731687</td>
-      <td>MGYS00000604</td>
-      <td>MET0258</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>26</th>
-      <td>SRS731529</td>
-      <td>MGYS00000604</td>
-      <td>MET0216</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>27</th>
-      <td>SRS728290</td>
-      <td>MGYS00000604</td>
-      <td>MET0066</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>28</th>
-      <td>SRS728284</td>
-      <td>MGYS00000604</td>
-      <td>MET0064</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>29</th>
-      <td>SRS728368</td>
-      <td>MGYS00000604</td>
-      <td>MET0163</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
-      <th>261</th>
-      <td>SRS728540</td>
-      <td>MGYS00000604</td>
-      <td>MET0177</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>262</th>
-      <td>SRS731556</td>
-      <td>MGYS00000604</td>
-      <td>MET0229</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>263</th>
-      <td>SRS731427</td>
-      <td>MGYS00000604</td>
-      <td>MET0206</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>264</th>
-      <td>SRS727535</td>
-      <td>MGYS00000604</td>
-      <td>MET0033</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>265</th>
-      <td>SRS731946</td>
-      <td>MGYS00000604</td>
-      <td>MET0280</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>266</th>
-      <td>SRS729088</td>
-      <td>MGYS00000604</td>
-      <td>MET0188</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>267</th>
-      <td>SRS729090</td>
-      <td>MGYS00000604</td>
-      <td>MET0190</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>268</th>
-      <td>SRS731959</td>
-      <td>MGYS00000604</td>
-      <td>MET0292</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>269</th>
-      <td>SRS728313</td>
-      <td>MGYS00000604</td>
-      <td>MET0095</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>270</th>
-      <td>SRS728459</td>
-      <td>MGYS00000604</td>
-      <td>MET0172</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>271</th>
-      <td>SRS731592</td>
-      <td>MGYS00000604</td>
-      <td>MET0238</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>272</th>
-      <td>SRS731933</td>
-      <td>MGYS00000604</td>
-      <td>MET0267</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>273</th>
-      <td>SRS731551</td>
-      <td>MGYS00000604</td>
-      <td>MET0226</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>274</th>
-      <td>SRS728341</td>
-      <td>MGYS00000604</td>
-      <td>MET0123</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>275</th>
-      <td>SRS732097</td>
-      <td>MGYS00000604</td>
-      <td>MET0311</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>276</th>
-      <td>SRS728319</td>
-      <td>MGYS00000604</td>
-      <td>MET0100</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>277</th>
-      <td>SRS731970</td>
-      <td>MGYS00000604</td>
-      <td>MET0298</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>278</th>
-      <td>SRS731430</td>
-      <td>MGYS00000604</td>
-      <td>MET0209</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>279</th>
-      <td>SRS731432</td>
-      <td>MGYS00000604</td>
-      <td>MET0211</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>280</th>
-      <td>SRS731691</td>
-      <td>MGYS00000604</td>
-      <td>MET0262</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>281</th>
-      <td>SRS728323</td>
-      <td>MGYS00000604</td>
-      <td>MET0105</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>282</th>
-      <td>SRS728451</td>
-      <td>MGYS00000604</td>
-      <td>MET0164</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>283</th>
-      <td>SRS728269</td>
-      <td>MGYS00000604</td>
-      <td>MET0046</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>284</th>
-      <td>SRS728277</td>
-      <td>MGYS00000604</td>
-      <td>MET0054</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>285</th>
-      <td>SRS728340</td>
-      <td>MGYS00000604</td>
-      <td>MET0122</td>
-      <td>Human Skin Metagenome</td>
-    </tr>
-    <tr>
-      <th>286</th>
+      <td>286</td>
       <td>SRS731560</td>
       <td>MGYS00000604</td>
       <td>MET0232</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>287</th>
+      <td>287</td>
       <td>SRS728336</td>
       <td>MGYS00000604</td>
       <td>MET0118</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>288</th>
+      <td>288</td>
       <td>SRS731552</td>
       <td>MGYS00000604</td>
       <td>MET0224</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>289</th>
+      <td>289</td>
       <td>SRS731932</td>
       <td>MGYS00000604</td>
       <td>MET0265</td>
       <td>Human Skin Metagenome</td>
     </tr>
     <tr>
-      <th>290</th>
+      <td>290</td>
       <td>SRS728453</td>
       <td>MGYS00000604</td>
       <td>MET0166</td>
@@ -13914,17 +14204,23 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Getting-Sample-Metadata">Getting Sample Metadata<a class="anchor-link" href="#Getting-Sample-Metadata">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Challenge-2">Challenge 2<a class="anchor-link" href="#Challenge-2">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">jsonapi_client</span> <span class="k">import</span> <span class="n">Session</span><span class="p">,</span> <span class="n">Filter</span>
-<span class="kn">import</span> <span class="nn">pycurl</span>
 <span class="kn">import</span> <span class="nn">html</span>
 
 <span class="n">API_BASE</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/&#39;</span>
@@ -13934,37 +14230,30 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
-<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>                       Traceback (most recent call last)
-<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-18-ec9a96e5ca21&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">----&gt; 1</span><span class="ansi-yellow-intense-fg ansi-bold"> </span><span class="ansi-green-intense-fg ansi-bold">from</span> jsonapi_client <span class="ansi-green-intense-fg ansi-bold">import</span> Session<span class="ansi-yellow-intense-fg ansi-bold">,</span> Filter
-<span class="ansi-green-fg">      2</span> <span class="ansi-green-intense-fg ansi-bold">import</span> pycurl
-<span class="ansi-green-fg">      3</span> <span class="ansi-green-intense-fg ansi-bold">import</span> html
-<span class="ansi-green-fg">      4</span> 
-<span class="ansi-green-fg">      5</span> API_BASE <span class="ansi-yellow-intense-fg ansi-bold">=</span> <span class="ansi-blue-intense-fg ansi-bold">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/&#39;</span>
-
-<span class="ansi-red-intense-fg ansi-bold">ModuleNotFoundError</span>: No module named &#39;jsonapi_client&#39;</pre>
 </div>
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_biom</span><span class="p">(</span><span class="n">lineage</span><span class="p">,</span> <span class="n">exp_type</span><span class="p">):</span>
+    <span class="n">API_BASE_BIOM</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/latest/biomes&#39;</span>
+    <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">API_BASE_BIOM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+        <span class="n">study</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">run</span><span class="p">,</span><span class="s1">&#39;analysis&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resource</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">study</span><span class="o">.</span><span class="n">downloads</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">extension</span> <span class="ow">in</span> <span class="n">i</span><span class="o">.</span><span class="n">file_format</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]:</span>
+                <span class="n">link</span> <span class="o">=</span> <span class="n">i</span><span class="o">.</span><span class="n">url</span>
+    <span class="k">return</span> <span class="n">link</span>
+</pre></div>
 
+    </div>
 </div>
 </div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Updated</span>
@@ -14022,10 +14311,118 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">API_BASE_SAMPLE</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/v1/samples&#39;</span>
+<span class="n">API_BASE_RUNS</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/v1/runs&#39;</span>
+<span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">API_BASE_SAMPLE</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
+    <span class="n">sample</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SRS731606&#39;</span><span class="p">,</span><span class="s1">&#39;runs&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resources</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">sample</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>runs: SRR1631560 (1324136762056)
+runs: SRR1631559 (1324137749192)
+runs: SRR1631558 (1324137748912)
+runs: SRR1631557 (1324137750480)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span><span class="o">.</span><span class="n">accession</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;SRR1631557&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">API_BASE_RUNS</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/v1/runs&#39;</span>
+<span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">API_BASE_RUNS</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
+    <span class="n">runs</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SRR1631560&#39;</span><span class="p">,</span><span class="s1">&#39;analyses&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resources</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">runs</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>analysis-jobs: MGYA00027201 (1324137768944)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">downloads</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">go_slim</span>
 </pre></div>
 
     </div>
@@ -14770,7 +15167,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ERR476421_FASTQ_I5.tsv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -14802,7 +15199,7 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[123]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -14930,6 +15327,248 @@ Jl. Teknika Selatan, Sekip Utara, Bulaksumur, Yogyakarta, Indonesia, 55281;</p>
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Sequence_length</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count     19042
+unique       70
+top          43
+freq        610
+Name: Sequence_length, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Sequence_length</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;60&#39;, &#39;61&#39;, &#39;62&#39;, &#39;53&#39;, &#39;47&#39;, &#39;50&#39;, &#39;27&#39;, &#39;55&#39;, &#39;35&#39;, &#39;29&#39;, &#39;39&#39;,
+       &#39;38&#39;, &#39;58&#39;, &#39;56&#39;, &#39;44&#39;, &#39;54&#39;, &#39;52&#39;, &#39;45&#39;, &#39;37&#39;, &#39;36&#39;, &#39;43&#39;, &#39;32&#39;,
+       &#39;33&#39;, &#39;69&#39;, &#39;67&#39;, &#39;41&#39;, &#39;42&#39;, &#39;68&#39;, &#39;65&#39;, &#39;51&#39;, &#39;66&#39;, &#39;28&#39;, &#39;40&#39;,
+       &#39;46&#39;, &#39;31&#39;, &#39;64&#39;, &#39;30&#39;, &#39;59&#39;, &#39;63&#39;, &#39;48&#39;, &#39;57&#39;, &#39;23&#39;, &#39;26&#39;, &#39;24&#39;,
+       &#39;34&#39;, &#39;49&#39;, &#39;70&#39;, &#39;25&#39;, &#39;78&#39;, &#39;83&#39;, &#39;82&#39;, &#39;79&#39;, &#39;84&#39;, &#39;72&#39;, &#39;81&#39;,
+       &#39;87&#39;, &#39;80&#39;, &#39;77&#39;, &#39;92&#39;, &#39;86&#39;, &#39;89&#39;, &#39;88&#39;, &#39;85&#39;, &#39;75&#39;, &#39;74&#39;, &#39;76&#39;,
+       &#39;73&#39;, &#39;71&#39;, &#39;22&#39;, &#39;21&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">Interpro_accession</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<span class="n">x</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[22]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([None, &#39;IPR003661&#39;, &#39;IPR019554&#39;, ..., &#39;IPR007348&#39;, &#39;IPR022002&#39;,
+       &#39;IPR003699&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Interpro_accession</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>count         13964
+unique         2538
+top       IPR016040
+freq            418
+Name: Interpro_accession, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">Interpro_accession</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[27]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0             None
+1        IPR003661
+2             None
+3        IPR019554
+4        IPR004365
+5        IPR012340
+6        IPR011611
+7             None
+8        IPR008274
+9        IPR008274
+10       IPR002587
+11       IPR016040
+12       IPR007235
+13            None
+14       IPR006091
+15       IPR006091
+16            None
+17       IPR000022
+18            None
+19       IPR001254
+20       IPR007297
+21            None
+22            None
+23       IPR023616
+24       IPR000883
+25       IPR000795
+26            None
+27       IPR000795
+28       IPR023210
+29       IPR023210
+           ...    
+19012    IPR000022
+19013         None
+19014         None
+19015    IPR007066
+19016    IPR011990
+19017         None
+19018    IPR011601
+19019    IPR011601
+19020         None
+19021    IPR011237
+19022    IPR011765
+19023         None
+19024         None
+19025         None
+19026         None
+19027         None
+19028         None
+19029    IPR013126
+19030         None
+19031    IPR020056
+19032    IPR011991
+19033         None
+19034         None
+19035    IPR016162
+19036    IPR000868
+19037    IPR002078
+19038         None
+19039    IPR023404
+19040         None
+19041         None
+Name: Interpro_accession, Length: 19042, dtype: object</pre>
 </div>
 
 </div>

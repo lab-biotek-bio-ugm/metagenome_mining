@@ -27,7 +27,7 @@
 
 # ## Load Library
 
-# In[7]:
+# In[1]:
 
 
 import os
@@ -41,46 +41,143 @@ import seaborn as sns
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# ## Challenge 1
+# ## Challenge 1 - Exploratory Data Analysis
+# Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori sampel "metagenome" (hasil shotgun sequencing)
 
-# In[8]:
+# ### Study
+# Pada part ini kita akan mencoba melihat ada berapa banyak studi terkait dengan Human Skin di EBI MGnify
+
+# In[1]:
 
 
-#study data
+#obtaining study data - TO DO!
+
+
+# In[4]:
+
+
+#load study data
 study_data = pd.read_csv("data_study.csv")
 study_data
 
 
-# In[14]:
+# In[5]:
 
 
+print(study_data.describe())
+print('Centers : ' + str(len(study_data['Centre name'].unique())))
+print(study_data['Centre name'].unique())
+
+
+# ### Samples
+# Pada part ini kita akan melihat sampel apa saja yang tersedia untuk human skin metagenome
+
+# In[3]:
+
+
+# Load samples
 sample_data = pd.read_csv("data_sample.csv")
-sample_data.sort_values('Description', ascending=False)
-description = sample_data.Description.unique()
-print(description)
 
 
-# In[17]:
+# In[6]:
 
 
-filtered_data = sample_data.loc[sample_data['Description'] == 'Human Skin Metagenome']
+# Rapikan label
+label = []
+for i in sample_data.Description:
+    y = " ".join(i.split())
+    label.append(y)
+
+
+# In[7]:
+
+
+# Replace label
+for x in range(len(sample_data)):
+    sample_data.Description[x] = label[x]
+sample_data.head()
+
+
+# In[10]:
+
+
+sample_data.Description.unique()
+
+
+# In[9]:
+
+
+sample_data.describe()
+
+
+# In[10]:
+
+
+study_id = sample_data['MGnify ID'].unique()
+print(study_id)
+study_id_clean = []
+for x in study_id:
+    y = x.split(',')
+    for z in y:
+        study_id_clean.append(z)
+study_id_clean = list(dict.fromkeys(study_id_clean))
+print(study_id_clean)
+
+
+# In[11]:
+
+
+df = study_data.loc[study_data['MGnify ID'].isin(study_id_clean)]
+df
+
+
+# In[12]:
+
+
+df.describe()
+
+
+# In[ ]:
+
+
+sample
+
+
+# In[13]:
+
+
+filtered_data = sample_data.loc[sample_data['Description'] == label[0]]
 filtered_data = filtered_data.reset_index(drop=True)
 filtered_data
 
 
+# ### Getting Sample Metadata
+
 # ## Challenge 2
 
-# In[18]:
+# In[16]:
 
 
 from jsonapi_client import Session, Filter
-import pycurl
 import html
 
 API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest/'
 
 
-# In[19]:
+# In[17]:
+
+
+def get_biom(lineage, exp_type):
+    API_BASE_BIOM = 'https://www.ebi.ac.uk/metagenomics/api/latest/biomes'
+    with Session(API_BASE_BIOM) as s:
+        study = s.get(run,'analysis').resource
+        for i in study.downloads:
+            if extension in i.file_format['name']:
+                link = i.url
+    return link
+
+
+# In[2]:
 
 
 # Updated
@@ -125,10 +222,38 @@ def random_sampling(dataframe, amount):
     return df_random
 
 
-# In[ ]:
+# In[22]:
 
 
+API_BASE_SAMPLE = 'https://www.ebi.ac.uk/metagenomics/api/v1/samples'
+API_BASE_RUNS = 'https://www.ebi.ac.uk/metagenomics/api/v1/runs'
+with Session(API_BASE_SAMPLE) as s:
+    sample = s.get('SRS731606','runs').resources
+    for a in sample:
+        print(a)
 
+
+# In[23]:
+
+
+a.accession
+
+
+# In[27]:
+
+
+API_BASE_RUNS = 'https://www.ebi.ac.uk/metagenomics/api/v1/runs'
+with Session(API_BASE_RUNS) as r:
+    runs = r.get('SRR1631560','analyses').resources
+    for x in runs:
+        print(x)
+
+
+# In[34]:
+
+
+y = x.downloads
+z = x.go_slim
 
 
 # ## Challenge 4-5 
@@ -222,7 +347,7 @@ sns.heatmap(df_heatmap[:30])#, annot=True, linewidths=.25)
 
 # ### 5.3 Interpro
 
-# In[123]:
+# In[5]:
 
 
 df = pd.read_csv('ERR476421_FASTQ_I5.tsv', header=None, sep='\n')
@@ -242,6 +367,37 @@ df.columns = ['Protein_accession',
               'Interpro_description',
               'GO_annotations']
 df.head()
+
+
+# In[8]:
+
+
+df.Sequence_length.describe()
+
+
+# In[12]:
+
+
+df.Sequence_length.unique()
+
+
+# In[22]:
+
+
+x = df.Interpro_accession.unique()
+x
+
+
+# In[24]:
+
+
+df.Interpro_accession.describe()
+
+
+# In[27]:
+
+
+df.Interpro_accession
 
 
 # In[ ]:
