@@ -10,6 +10,14 @@
 # 
 # *Correspondence: [matin_nuhamunada@ugm.ac.id](mailto:matin_nuhamunada@mail.ugm.ac.id)  
 # 
+# ## Daftar Isi
+# 1. Deskripsi Data
+# 2. Challenge
+# 3. Load Library
+# 4. Web Scraping & Data Cleaning
+# 5. Exploratory Data Analysis (EDA)
+# 6. Data Mining
+# 
 # ## A. Deskripsi Data
 # Ada tiga file yang dapat diakses dari hasil analisis fungsional EBI-MGnify: (https://emg-docs.readthedocs.io/en/latest/portal.html#description-of-functional-annotation-files-available-to-download)
 # 
@@ -33,6 +41,9 @@
 import os
 from pandas import DataFrame
 import pandas as pd
+import pycurl
+
+from scipy import stats
 
 import matplotlib.pyplot as plt
 plt.close('all')
@@ -41,19 +52,62 @@ import seaborn as sns
 get_ipython().run_line_magic('matplotlib', 'inline')
 
 
-# ## D. Challenge 1 - Exploratory Data Analysis
+# In[2]:
+
+
+from jsonapi_client import Session, Filter
+import html
+
+API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest/'
+
+
+# ## D. Webscraping & Data Cleaning
 # Web Scraping menggunakan RESTful API dari EBI MGnify untuk mencari studi dengan kata kunci "human", "skin", dan kategori sampel "metagenome" (hasil shotgun sequencing)
 
 # ### D.1 Study
 # Pada part ini kita akan mencoba melihat ada berapa banyak studi terkait dengan Human Skin di EBI MGnify
 
-# In[1]:
+# In[3]:
 
 
 #obtaining study data - TO DO!
+def get_biome(lineage, exp_type):
+    API_BASE_BIOME = 'https://www.ebi.ac.uk/metagenomics/api/latest/biomes'
+    with Session(API_BASE_BIOM) as s:
+        study = s.get(run,'analysis').resource
+        for i in study.downloads:
+            if extension in i.file_format['name']:
+                link = i.url
+    return link
 
 
-# In[13]:
+# In[15]:
+
+
+API_BASE_BIOME = 'https://www.ebi.ac.uk/metagenomics/api/latest/biomes'
+with Session(API_BASE_BIOME) as s:
+    biome = s.get('root:Host-associated:Human:Skin').resource
+
+
+# In[21]:
+
+
+biome.samples_count
+
+
+# In[22]:
+
+
+biome.studies
+
+
+# In[23]:
+
+
+biome.samples
+
+
+# In[4]:
 
 
 #load study data
@@ -61,7 +115,7 @@ study_data = pd.read_csv("data_study.csv")
 study_data
 
 
-# In[30]:
+# In[5]:
 
 
 print(study_data.describe())
@@ -79,14 +133,14 @@ for i in study_data['Centre name'].unique():
 # ## D.3 Samples
 # Pada part ini kita akan melihat sampel apa saja yang tersedia untuk human skin metagenome
 
-# In[31]:
+# In[6]:
 
 
 # Load samples
 sample_data = pd.read_csv("data_sample.csv")
 
 
-# In[32]:
+# In[7]:
 
 
 # Rapikan label
@@ -96,7 +150,7 @@ for i in sample_data.Description:
     label.append(y)
 
 
-# In[33]:
+# In[8]:
 
 
 # Replace label
@@ -105,7 +159,7 @@ for x in range(len(sample_data)):
 sample_data.head()
 
 
-# In[34]:
+# In[9]:
 
 
 x = 0
@@ -114,19 +168,19 @@ for i in sample_data.Description.unique():
     print(str(x) + ' ' + i)
 
 
-# In[66]:
+# In[10]:
 
 
 sample_data.groupby(['MGnify ID']).describe()
 
 
-# In[68]:
+# In[11]:
 
 
 sample_data['MGnify ID'].count()
 
 
-# In[53]:
+# In[12]:
 
 
 study_id = sample_data['MGnify ID'].unique()
@@ -138,7 +192,7 @@ for x in study_id:
 study_id_clean = list(dict.fromkeys(study_id_clean))
 
 
-# In[38]:
+# In[13]:
 
 
 x = 0
@@ -147,7 +201,7 @@ for i in study_id_clean:
     print(str(x) + ' ' + i)
 
 
-# In[44]:
+# In[14]:
 
 
 df = study_data.loc[study_data['MGnify ID'].isin(study_id_clean)]
@@ -159,13 +213,13 @@ df.reset_index(drop=True)
 
 # ### Ambil Metadata
 
-# In[73]:
+# In[15]:
 
 
 study_id
 
 
-# In[74]:
+# In[16]:
 
 
 filtered_data = sample_data.loc[sample_data['MGnify ID'] == study_id[0]] #ganti nomor ini dari study id
@@ -175,23 +229,100 @@ filtered_data
 
 # ### Getting Sample Metadata
 
-# ## Challenge 2
-
-# In[16]:
-
-
-from jsonapi_client import Session, Filter
-import html
-
-API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest/'
-
-
 # In[17]:
 
 
-def get_biom(lineage, exp_type):
-    API_BASE_BIOM = 'https://www.ebi.ac.uk/metagenomics/api/latest/biomes'
-    with Session(API_BASE_BIOM) as s:
+def ebi_sample(sample):
+    API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest/samples'
+    with Session(API_BASE) as s:
+        sample = s.get(sample).resource
+    return sample
+
+
+# In[18]:
+
+
+sampled = ebi_sample('SRS731606')
+
+
+# In[19]:
+
+
+print(sampled.accession)
+print(sampled.analysis_completed)
+#print(sampled.biome)
+print(sampled.biosample)
+print(sampled.collection_date)
+print(sampled.environment_biome)
+print(sampled.environment_feature)
+print(sampled.environment_material)
+print(sampled.geo_loc_name)
+print(sampled.host_tax_id)
+print(sampled.last_update)
+print(sampled.latitude)
+print(sampled.longitude)
+print(sampled.runs)
+print(sampled.sample_alias)
+print(sampled.sample_desc)
+print(sampled.sample_metadata)
+print(sampled.species)
+#print(sampled.studies)
+
+
+# In[20]:
+
+
+sampled = ebi_sample('SRS731606')
+for x in sampled.runs:
+    print(x.id)
+    for y in x.analyses:
+        print(y.id)
+        for z in y.downloads:
+            if 'FASTQ_GO_slim.csv' in z.url:
+                print(z.url)
+
+
+# In[21]:
+
+
+filename = y.id + '_FASTQ_GO_slim.csv'
+link = z.url
+
+if not os.path.isfile(filename):
+    with open(filename, 'wb') as f:
+        c = pycurl.Curl()
+        c.setopt(c.URL, link)
+        c.setopt(c.WRITEDATA, f)
+        c.perform()
+        c.close()
+
+
+# In[21]:
+
+
+with open('SRR1631558_MERGED_FASTQ_GO_slim.csv', 'wb') as f:
+    c = pycurl.Curl()
+    c.setopt(c.URL, 'https://www.ebi.ac.uk/metagenomics/api/v1/analyses/MGYA00023807/file/SRR1631558_MERGED_FASTQ_GO_slim.csv')
+    c.setopt(c.WRITEDATA, f)
+    c.perform()
+    c.close()
+
+
+# In[23]:
+
+
+t = y.downloads[7]
+t.url
+
+
+# ## Challenge 2
+
+# In[24]:
+
+
+def get_analysis_result(run, extension):
+    API_BASE_RUN = 'https://www.ebi.ac.uk/metagenomics/api/latest/runs'
+    with Session(API_BASE_RUN) as s:
         study = s.get(run,'analysis').resource
         for i in study.downloads:
             if extension in i.file_format['name']:
@@ -199,7 +330,7 @@ def get_biom(lineage, exp_type):
     return link
 
 
-# In[2]:
+# In[ ]:
 
 
 # Updated
@@ -244,7 +375,7 @@ def random_sampling(dataframe, amount):
     return df_random
 
 
-# In[22]:
+# In[ ]:
 
 
 API_BASE_SAMPLE = 'https://www.ebi.ac.uk/metagenomics/api/v1/samples'
@@ -255,13 +386,13 @@ with Session(API_BASE_SAMPLE) as s:
         print(a)
 
 
-# In[23]:
+# In[ ]:
 
 
 a.accession
 
 
-# In[27]:
+# In[ ]:
 
 
 API_BASE_RUNS = 'https://www.ebi.ac.uk/metagenomics/api/v1/runs'
@@ -271,7 +402,7 @@ with Session(API_BASE_RUNS) as r:
         print(x)
 
 
-# In[34]:
+# In[ ]:
 
 
 y = x.downloads
@@ -281,7 +412,7 @@ z = x.go_slim
 # ## Challenge 4-5 
 # ### 5.1 Visualize Functional Analysis - Summary
 
-# In[2]:
+# In[22]:
 
 
 df_slim = pd.DataFrame(columns=['GO_ID', 'Category', 'Pathway'])
@@ -299,33 +430,54 @@ for a in range(len(file)):
 df_slim.head()
 
 
-# In[58]:
+# In[25]:
+
+
+df_slim.to_csv('df_slim.csv')
+
+
+# In[23]:
 
 
 df_slim_sum = df_slim.drop(columns=['GO_ID','Pathway'])
 df_slim_sum = df_slim_sum.set_index('Category')
-df_slim_sum.describe()
-
-
-# In[59]:
-
-
-df_slim_sum['total'] = df_slim_sum.sum(axis=1)
-df_slim_sum['total'] = df_slim_sum['total']/2
-df_slim_sum = df_slim_sum.sort_values('total', ascending=False)
 df_slim_sum.head()
 
 
-# In[63]:
+# In[27]:
 
 
-df_heatmap = df_slim_sum.drop(columns=['total'])
-sns.heatmap(df_heatmap[:20])#, annot=True, linewidths=.25)
+df_slim_sum['total'] = df_slim_sum.sum(axis=1)
+df_slim_sum['total'] = df_slim_sum['total']/3
+df_slim_sum = df_slim_sum.sort_values('total', ascending=True)
+df_plot = df_slim_sum.drop(columns=['total'])
+plt.figure()
+df_plot.plot.barh(figsize=(8, 35))
+
+
+# In[28]:
+
+
+sns.heatmap(df_plot[:100])
+
+
+# In[29]:
+
+
+df_plot_z = df_plot.apply(stats.zscore)
+plt.figure()
+df_plot_z.plot.barh(figsize=(8, 35))
+
+
+# In[30]:
+
+
+sns.heatmap(df_plot_z[:100])
 
 
 # ### 5.2 Detailed GO
 
-# In[64]:
+# In[80]:
 
 
 df_GO = pd.DataFrame(columns=['GO_ID', 'Category', 'Pathway'])
@@ -343,7 +495,7 @@ for a in range(len(file)):
 df_GO.head()
 
 
-# In[65]:
+# In[81]:
 
 
 df_GO_sum = df_GO.drop(columns=['GO_ID','Pathway'])
@@ -351,7 +503,7 @@ df_GO_sum = df_GO_sum.set_index('Category')
 df_GO_sum.describe()
 
 
-# In[66]:
+# In[82]:
 
 
 df_GO_sum['total'] = df_GO_sum.sum(axis=1)
@@ -360,7 +512,7 @@ df_GO_sum = df_GO_sum.sort_values('total', ascending=False)
 df_GO_sum.head()
 
 
-# In[70]:
+# In[83]:
 
 
 df_heatmap = df_GO_sum.drop(columns=['total'])
@@ -369,7 +521,7 @@ sns.heatmap(df_heatmap[:30])#, annot=True, linewidths=.25)
 
 # ### 5.3 Interpro
 
-# In[5]:
+# In[ ]:
 
 
 df = pd.read_csv('ERR476421_FASTQ_I5.tsv', header=None, sep='\n')
@@ -391,32 +543,32 @@ df.columns = ['Protein_accession',
 df.head()
 
 
-# In[8]:
+# In[ ]:
 
 
 df.Sequence_length.describe()
 
 
-# In[12]:
+# In[ ]:
 
 
 df.Sequence_length.unique()
 
 
-# In[22]:
+# In[ ]:
 
 
 x = df.Interpro_accession.unique()
 x
 
 
-# In[24]:
+# In[ ]:
 
 
 df.Interpro_accession.describe()
 
 
-# In[27]:
+# In[ ]:
 
 
 df.Interpro_accession
