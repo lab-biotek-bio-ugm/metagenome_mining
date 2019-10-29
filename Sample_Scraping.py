@@ -1,17 +1,22 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[243]:
+# In[30]:
 
 
 import os
 from pandas import DataFrame
 import pandas as pd
 
+try:
+    from urllib import urlencode
+except ImportError:
+    from urllib.parse import urlencode
+
 
 # # Data Cleaning
 
-# In[134]:
+# In[2]:
 
 
 # Load samples
@@ -31,7 +36,7 @@ sample_data.head()
 
 # # Persiapan Scraping
 
-# In[135]:
+# In[3]:
 
 
 # Ambil unique value dari study id untuk filter
@@ -39,7 +44,7 @@ study_id = sample_data['MGnify ID'].unique()
 study_id
 
 
-# In[136]:
+# In[4]:
 
 
 #filter data untuk diunduh per study
@@ -52,7 +57,7 @@ filtered_data
 
 # # Data Scraping
 
-# In[137]:
+# In[27]:
 
 
 from jsonapi_client import Session, Filter
@@ -60,7 +65,7 @@ import html
 import pycurl
 
 
-# In[152]:
+# In[28]:
 
 
 # create get function for sample
@@ -73,7 +78,7 @@ def ebi_sample(sample):
     return sample
 
 
-# In[148]:
+# In[7]:
 
 
 filtered_data.Sample[0]
@@ -107,7 +112,7 @@ print(sampled.species)
 
 # ## kita tertarik untuk mengambil data: 1. accession, 2. runs, dan 3. sample_metadata
 
-# In[154]:
+# In[31]:
 
 
 #create containers
@@ -122,7 +127,7 @@ for i in filtered_data.Sample:
 scraping
 
 
-# In[155]:
+# In[34]:
 
 
 # create dataframe from list
@@ -132,7 +137,7 @@ df_scrape
 
 # # merge and write
 
-# In[156]:
+# In[35]:
 
 
 #merge based on similar value
@@ -149,7 +154,7 @@ df_scrapingresult.to_csv('scraping_result_study_MGYS00000518.csv', index=False)
 
 # # Download Analysis result
 
-# In[236]:
+# In[51]:
 
 
 import os
@@ -164,6 +169,7 @@ def download_GO_Slim(run_id):
     df = DataFrame(columns=('category', 'description', 'annotation counts'))
     df.index.name = 'GO term'
     
+    API_BASE = 'https://www.ebi.ac.uk/metagenomics/api/latest'
     with Session(API_BASE) as s:
         run = s.get('runs', run_id).resource
         for a in run.analyses:
@@ -171,14 +177,27 @@ def download_GO_Slim(run_id):
                 df.loc[ann.accession] = [
                     ann.lineage, ann.description, ann.count
                 ]
-    return df.to_csv(fullname)
+    df = df.rename(columns={'annotation counts':run_id})
+    return df
 
 
-# In[242]:
+# In[57]:
 
 
-for i in df_scrapingresult.Runs:
-    download_GO_Slim(i[0].id)
+df_merge = pd.DataFrame()
+for num, i in enumerate(df_scrapingresult.Runs):
+    if num == 0:
+        df_merge = download_GO_Slim(df_scrapingresult.Runs[0][0].id)
+    else:
+        df = download_GO_Slim(i[0].id)
+        df_merge = pd.merge(df_merge, df, on=['GO term','category','description'], how='left')
+df_merge
+
+
+# In[ ]:
+
+
+df_merge.to_csv('MGYS00000518_FASTQ_GO_slim.csv')
 
 
 # In[ ]:

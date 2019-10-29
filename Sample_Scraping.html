@@ -13115,12 +13115,17 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[243]:</div>
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">from</span> <span class="nn">pandas</span> <span class="k">import</span> <span class="n">DataFrame</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib</span> <span class="k">import</span> <span class="n">urlencode</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="k">import</span> <span class="n">urlencode</span>
 </pre></div>
 
     </div>
@@ -13137,7 +13142,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load samples</span>
@@ -13165,7 +13170,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[134]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13250,7 +13255,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Ambil unique value dari study id untuk filter</span>
@@ -13268,7 +13273,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[135]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13287,7 +13292,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#filter data untuk diunduh per study</span>
@@ -13308,7 +13313,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[136]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13428,7 +13433,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[137]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">jsonapi_client</span> <span class="k">import</span> <span class="n">Session</span><span class="p">,</span> <span class="n">Filter</span>
@@ -13443,7 +13448,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[152]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create get function for sample</span>
@@ -13463,7 +13468,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[148]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">filtered_data</span><span class="o">.</span><span class="n">Sample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -13479,7 +13484,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[148]:</div>
+    <div class="prompt output_prompt">Out[7]:</div>
 
 
 
@@ -13575,7 +13580,7 @@ Homo sapiens
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[154]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create containers</span>
@@ -13600,77 +13605,77 @@ Homo sapiens
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[154]:</div>
+    <div class="prompt output_prompt">Out[31]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>[[&#39;ERS805755&#39;,
-  [&lt;ResourceObject: runs: ERR981247 (2308806063496) (2308806063496)&gt;],
+  [&lt;ResourceObject: runs: ERR981247 (1625090802240) (1625090802240)&gt;],
   [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
    {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
    {&#39;key&#39;: &#39;ENA checklist&#39;,
     &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
     &#39;unit&#39;: None}]],
  [&#39;ERS805759&#39;,
-  [&lt;ResourceObject: runs: ERR981250 (2308803534296) (2308803534296)&gt;],
-  [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
-   {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
-   {&#39;unit&#39;: None,
-    &#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
+  [&lt;ResourceObject: runs: ERR981250 (1625098634744) (1625098634744)&gt;],
+  [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
+   {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
+   {&#39;key&#39;: &#39;ENA checklist&#39;,
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
+    &#39;unit&#39;: None}]],
  [&#39;ERS805760&#39;,
-  [&lt;ResourceObject: runs: ERR981251 (2308902592184) (2308902592184)&gt;],
-  [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
-    &#39;unit&#39;: None}]],
+  [&lt;ResourceObject: runs: ERR981251 (1625074047632) (1625074047632)&gt;],
+  [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
+   {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
+   {&#39;unit&#39;: None,
+    &#39;key&#39;: &#39;ENA checklist&#39;,
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
  [&#39;ERS805756&#39;,
-  [&lt;ResourceObject: runs: ERR981248 (2308852977848) (2308852977848)&gt;],
-  [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
-   {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
+  [&lt;ResourceObject: runs: ERR981248 (1625142707200) (1625142707200)&gt;],
+  [{&#39;unit&#39;: None, &#39;value&#39;: &#39;9606&#39;, &#39;key&#39;: &#39;NCBI sample classification&#39;},
+   {&#39;unit&#39;: None, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;key&#39;: &#39;instrument model&#39;},
    {&#39;unit&#39;: None,
-    &#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
+    &#39;key&#39;: &#39;ENA checklist&#39;}]],
  [&#39;ERS805757&#39;,
-  [&lt;ResourceObject: runs: ERR981249 (2308902563792) (2308902563792)&gt;],
-  [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
-    &#39;unit&#39;: None}]],
+  [&lt;ResourceObject: runs: ERR981249 (1625096597232) (1625096597232)&gt;],
+  [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
+   {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
+   {&#39;unit&#39;: None,
+    &#39;key&#39;: &#39;ENA checklist&#39;,
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
  [&#39;ERS805754&#39;,
-  [&lt;ResourceObject: runs: ERR981246 (2308902591064) (2308902591064)&gt;],
-  [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
-   {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
-   {&#39;unit&#39;: None,
-    &#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
+  [&lt;ResourceObject: runs: ERR981246 (1625142926416) (1625142926416)&gt;],
+  [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
+   {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
+   {&#39;key&#39;: &#39;ENA checklist&#39;,
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
+    &#39;unit&#39;: None}]],
  [&#39;ERS805762&#39;,
-  [&lt;ResourceObject: runs: ERR981253 (2308902506848) (2308902506848)&gt;],
-  [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
-   {&#39;key&#39;: &#39;ENA checklist&#39;,
-    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
-    &#39;unit&#39;: None}]],
- [&#39;ERS805761&#39;,
-  [&lt;ResourceObject: runs: ERR981252 (2308903082808) (2308903082808)&gt;],
+  [&lt;ResourceObject: runs: ERR981253 (1625093160744) (1625093160744)&gt;],
   [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;},
    {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
    {&#39;unit&#39;: None,
     &#39;key&#39;: &#39;ENA checklist&#39;,
     &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;}]],
- [&#39;ERS805763&#39;,
-  [&lt;ResourceObject: runs: ERR981254 (2308902614296) (2308902614296)&gt;],
+ [&#39;ERS805761&#39;,
+  [&lt;ResourceObject: runs: ERR981252 (1625088466000) (1625088466000)&gt;],
   [{&#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;9606&#39;, &#39;unit&#39;: None},
    {&#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;unit&#39;: None},
    {&#39;key&#39;: &#39;ENA checklist&#39;,
     &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
     &#39;unit&#39;: None}]],
+ [&#39;ERS805763&#39;,
+  [&lt;ResourceObject: runs: ERR981254 (1625141692064) (1625141692064)&gt;],
+  [{&#39;unit&#39;: None, &#39;value&#39;: &#39;9606&#39;, &#39;key&#39;: &#39;NCBI sample classification&#39;},
+   {&#39;unit&#39;: None, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;, &#39;key&#39;: &#39;instrument model&#39;},
+   {&#39;unit&#39;: None,
+    &#39;value&#39;: &#39;ENA default sample checklist (ERC000011)&#39;,
+    &#39;key&#39;: &#39;ENA checklist&#39;}]],
  [&#39;ERS805753&#39;,
-  [&lt;ResourceObject: runs: ERR981245 (2308854129104) (2308854129104)&gt;],
+  [&lt;ResourceObject: runs: ERR981245 (1625141816176) (1625141816176)&gt;],
   [{&#39;unit&#39;: None, &#39;key&#39;: &#39;NCBI sample classification&#39;, &#39;value&#39;: &#39;646099&#39;},
    {&#39;unit&#39;: None, &#39;key&#39;: &#39;instrument model&#39;, &#39;value&#39;: &#39;Illumina HiSeq 2500&#39;},
    {&#39;unit&#39;: None,
@@ -13686,7 +13691,7 @@ Homo sapiens
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[155]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create dataframe from list</span>
@@ -13704,7 +13709,7 @@ Homo sapiens
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[155]:</div>
+    <div class="prompt output_prompt">Out[34]:</div>
 
 
 
@@ -13736,61 +13741,61 @@ Homo sapiens
     <tr>
       <td>0</td>
       <td>ERS805755</td>
-      <td>[runs: ERR981247 (2308806063496)]</td>
+      <td>[runs: ERR981247 (1625090802240)]</td>
       <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>1</td>
       <td>ERS805759</td>
-      <td>[runs: ERR981250 (2308803534296)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981250 (1625098634744)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>2</td>
       <td>ERS805760</td>
-      <td>[runs: ERR981251 (2308902592184)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981251 (1625074047632)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>3</td>
       <td>ERS805756</td>
-      <td>[runs: ERR981248 (2308852977848)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981248 (1625142707200)]</td>
+      <td>[{'unit': None, 'value': '9606', 'key': 'NCBI ...</td>
     </tr>
     <tr>
       <td>4</td>
       <td>ERS805757</td>
-      <td>[runs: ERR981249 (2308902563792)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981249 (1625096597232)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>5</td>
       <td>ERS805754</td>
-      <td>[runs: ERR981246 (2308902591064)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981246 (1625142926416)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>6</td>
       <td>ERS805762</td>
-      <td>[runs: ERR981253 (2308902506848)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981253 (1625093160744)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>7</td>
       <td>ERS805761</td>
-      <td>[runs: ERR981252 (2308903082808)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981252 (1625088466000)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>8</td>
       <td>ERS805763</td>
-      <td>[runs: ERR981254 (2308902614296)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981254 (1625141692064)]</td>
+      <td>[{'unit': None, 'value': '9606', 'key': 'NCBI ...</td>
     </tr>
     <tr>
       <td>9</td>
       <td>ERS805753</td>
-      <td>[runs: ERR981245 (2308854129104)]</td>
+      <td>[runs: ERR981245 (1625141816176)]</td>
       <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
   </tbody>
@@ -13813,7 +13818,7 @@ Homo sapiens
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[156]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#merge based on similar value</span>
@@ -13831,7 +13836,7 @@ Homo sapiens
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[156]:</div>
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
 
@@ -13869,7 +13874,7 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1709_1005</td>
       <td>AD upper_back UB LES</td>
-      <td>[runs: ERR981247 (2308806063496)]</td>
+      <td>[runs: ERR981247 (1625090802240)]</td>
       <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
@@ -13878,8 +13883,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1761_1106</td>
       <td>TRL lower_back LB NON_LES</td>
-      <td>[runs: ERR981250 (2308803534296)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981250 (1625098634744)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>2</td>
@@ -13887,8 +13892,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1896_1043</td>
       <td>AD posterior_thigh PT NON_LES</td>
-      <td>[runs: ERR981251 (2308902592184)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981251 (1625074047632)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>3</td>
@@ -13896,8 +13901,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1709_1072</td>
       <td>P1709_1072</td>
-      <td>[runs: ERR981248 (2308852977848)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981248 (1625142707200)]</td>
+      <td>[{'unit': None, 'value': '9606', 'key': 'NCBI ...</td>
     </tr>
     <tr>
       <td>4</td>
@@ -13905,8 +13910,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1709_1083</td>
       <td>AD upper_back UB LES</td>
-      <td>[runs: ERR981249 (2308902563792)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981249 (1625096597232)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>5</td>
@@ -13914,8 +13919,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P752_123</td>
       <td>P752_123</td>
-      <td>[runs: ERR981246 (2308902591064)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981246 (1625142926416)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>6</td>
@@ -13923,8 +13928,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1896_1090</td>
       <td>CTRL thigh T NON_LES</td>
-      <td>[runs: ERR981253 (2308902506848)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981253 (1625093160744)]</td>
+      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
     <tr>
       <td>7</td>
@@ -13932,8 +13937,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1896_1079</td>
       <td>CTRL lower_back LB NON_LES</td>
-      <td>[runs: ERR981252 (2308903082808)]</td>
-      <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
+      <td>[runs: ERR981252 (1625088466000)]</td>
+      <td>[{'key': 'NCBI sample classification', 'value'...</td>
     </tr>
     <tr>
       <td>8</td>
@@ -13941,8 +13946,8 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P1900_1076</td>
       <td>PSO lower_back LB LES</td>
-      <td>[runs: ERR981254 (2308902614296)]</td>
-      <td>[{'key': 'NCBI sample classification', 'value'...</td>
+      <td>[runs: ERR981254 (1625141692064)]</td>
+      <td>[{'unit': None, 'value': '9606', 'key': 'NCBI ...</td>
     </tr>
     <tr>
       <td>9</td>
@@ -13950,7 +13955,7 @@ Homo sapiens
       <td>MGYS00000518</td>
       <td>P752_105</td>
       <td>AD posterior_thigh PT LES</td>
-      <td>[runs: ERR981245 (2308854129104)]</td>
+      <td>[runs: ERR981245 (1625141816176)]</td>
       <td>[{'unit': None, 'key': 'NCBI sample classifica...</td>
     </tr>
   </tbody>
@@ -13987,7 +13992,7 @@ Homo sapiens
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[236]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -14002,6 +14007,7 @@ Homo sapiens
     <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;category&#39;</span><span class="p">,</span> <span class="s1">&#39;description&#39;</span><span class="p">,</span> <span class="s1">&#39;annotation counts&#39;</span><span class="p">))</span>
     <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;GO term&#39;</span>
     
+    <span class="n">API_BASE</span> <span class="o">=</span> <span class="s1">&#39;https://www.ebi.ac.uk/metagenomics/api/latest&#39;</span>
     <span class="k">with</span> <span class="n">Session</span><span class="p">(</span><span class="n">API_BASE</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
         <span class="n">run</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="n">run_id</span><span class="p">)</span><span class="o">.</span><span class="n">resource</span>
         <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">run</span><span class="o">.</span><span class="n">analyses</span><span class="p">:</span>
@@ -14009,7 +14015,8 @@ Homo sapiens
                 <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">ann</span><span class="o">.</span><span class="n">accession</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
                     <span class="n">ann</span><span class="o">.</span><span class="n">lineage</span><span class="p">,</span> <span class="n">ann</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">ann</span><span class="o">.</span><span class="n">count</span>
                 <span class="p">]</span>
-    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">fullname</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;annotation counts&#39;</span><span class="p">:</span><span class="n">run_id</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">df</span>
 </pre></div>
 
     </div>
@@ -14019,11 +14026,285 @@ Homo sapiens
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[242]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_scrapingresult</span><span class="o">.</span><span class="n">Runs</span><span class="p">:</span>
-    <span class="n">download_GO_Slim</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">df_scrapingresult</span><span class="o">.</span><span class="n">Runs</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">num</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">df_merge</span> <span class="o">=</span> <span class="n">download_GO_Slim</span><span class="p">(</span><span class="n">df_scrapingresult</span><span class="o">.</span><span class="n">Runs</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">download_GO_Slim</span><span class="p">(</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+        <span class="n">df_merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_merge</span><span class="p">,</span> <span class="n">df</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GO term&#39;</span><span class="p">,</span><span class="s1">&#39;category&#39;</span><span class="p">,</span><span class="s1">&#39;description&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+<span class="n">df_merge</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[57]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>category</th>
+      <th>description</th>
+      <th>ERR981247</th>
+      <th>ERR981250</th>
+      <th>ERR981251</th>
+      <th>ERR981248</th>
+      <th>ERR981249</th>
+      <th>ERR981246</th>
+      <th>ERR981253</th>
+      <th>ERR981252</th>
+      <th>ERR981254</th>
+      <th>ERR981245</th>
+    </tr>
+    <tr>
+      <th>GO term</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GO:0030031</td>
+      <td>biological_process</td>
+      <td>cell projection assembly</td>
+      <td>39</td>
+      <td>0</td>
+      <td>26</td>
+      <td>0</td>
+      <td>10</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>10</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>GO:0071554</td>
+      <td>biological_process</td>
+      <td>cell wall organization or biogenesis</td>
+      <td>2030</td>
+      <td>131</td>
+      <td>3567</td>
+      <td>155</td>
+      <td>2399</td>
+      <td>674</td>
+      <td>259</td>
+      <td>1062</td>
+      <td>167</td>
+      <td>1037</td>
+    </tr>
+    <tr>
+      <td>GO:0016043</td>
+      <td>biological_process</td>
+      <td>cellular component organization</td>
+      <td>58626</td>
+      <td>445</td>
+      <td>13692</td>
+      <td>599</td>
+      <td>8081</td>
+      <td>40735</td>
+      <td>8309</td>
+      <td>3739</td>
+      <td>3416</td>
+      <td>34477</td>
+    </tr>
+    <tr>
+      <td>GO:0051301</td>
+      <td>biological_process</td>
+      <td>cell division</td>
+      <td>2385</td>
+      <td>236</td>
+      <td>4018</td>
+      <td>295</td>
+      <td>4467</td>
+      <td>4859</td>
+      <td>39</td>
+      <td>1166</td>
+      <td>335</td>
+      <td>894</td>
+    </tr>
+    <tr>
+      <td>GO:0016049</td>
+      <td>biological_process</td>
+      <td>cell growth</td>
+      <td>133</td>
+      <td>0</td>
+      <td>80</td>
+      <td>0</td>
+      <td>7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>48</td>
+      <td>201</td>
+    </tr>
+    <tr>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <td>GO:0000988</td>
+      <td>molecular_function</td>
+      <td>protein binding transcription factor activity</td>
+      <td>2229</td>
+      <td>226</td>
+      <td>3950</td>
+      <td>498</td>
+      <td>5472</td>
+      <td>5222</td>
+      <td>306</td>
+      <td>1835</td>
+      <td>486</td>
+      <td>756</td>
+    </tr>
+    <tr>
+      <td>GO:0004872</td>
+      <td>molecular_function</td>
+      <td>receptor activity</td>
+      <td>19313</td>
+      <td>1086</td>
+      <td>17212</td>
+      <td>1266</td>
+      <td>6795</td>
+      <td>38163</td>
+      <td>1938</td>
+      <td>5269</td>
+      <td>4999</td>
+      <td>12234</td>
+    </tr>
+    <tr>
+      <td>GO:0045182</td>
+      <td>molecular_function</td>
+      <td>translation regulator activity</td>
+      <td>3</td>
+      <td>0</td>
+      <td>18</td>
+      <td>15</td>
+      <td>8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>2</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>GO:0005215</td>
+      <td>molecular_function</td>
+      <td>transporter activity</td>
+      <td>59812</td>
+      <td>4610</td>
+      <td>79841</td>
+      <td>5452</td>
+      <td>96470</td>
+      <td>74178</td>
+      <td>6009</td>
+      <td>38988</td>
+      <td>9254</td>
+      <td>29484</td>
+    </tr>
+    <tr>
+      <td>GO:0000156</td>
+      <td>molecular_function</td>
+      <td>phosphorelay response regulator activity</td>
+      <td>111</td>
+      <td>38</td>
+      <td>31</td>
+      <td>79</td>
+      <td>57</td>
+      <td>0</td>
+      <td>18</td>
+      <td>190</td>
+      <td>12</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+<p>116 rows × 12 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_merge</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;MGYS00000518_FASTQ_GO_slim.csv&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
