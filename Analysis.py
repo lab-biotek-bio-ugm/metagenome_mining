@@ -3,7 +3,7 @@
 
 # # Load Library
 
-# In[2]:
+# In[1]:
 
 
 import os
@@ -30,11 +30,11 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 # 
 # data should be extracted to folder "data"
 
-# In[5]:
+# In[2]:
 
 
 file = []
-for name in os.listdir("data"):
+for name in os.listdir():
     if name.endswith("_FASTQ_GO_slim.csv"):
         file.append(name)
 file
@@ -86,7 +86,7 @@ df_raw_target.head(2)
 
 # Export raw data to csv
 if not os.path.exists('output'):
-    os.mkdir('my_folder')
+    os.mkdir('output')
 df_raw.to_csv("./output/df_raw.csv")
 df_raw_target.to_csv("./output/df_raw_target.csv")
 
@@ -147,7 +147,7 @@ sns.heatmap(df_norm_minmax,
            cbar_kws={"orientation": "horizontal"})
 
 
-# In[20]:
+# In[19]:
 
 
 from scipy.stats import zscore
@@ -156,79 +156,87 @@ df_norm_zscore = df_raw_sorted.apply(zscore)
 plt.figure(figsize = (10,18))
 sns.set(font_scale=0.7) 
 sns.heatmap(df_norm_zscore,
-           yticklabels=df_norm_zscore.index.get_level_values(1),
+           yticklabels=df_norm_zscore.index.get_level_values(2),
            cbar_kws={"orientation": "horizontal"})
+
+
+# In[ ]:
+
+
+# To Do Ahmad
+# Apply Standard Scaler to df_raw_sorted
+
+
+# In[ ]:
+
+
+# To Do Ahmad
+# Create distance matrix *bray curtis* to df_raw_sorted
+
+
+# In[24]:
+
+
+# Group By Studies?
+data_group = data.groupby(level=0).mean()
+plt.figure(figsize = (8,16))
+sns.heatmap(data_group.T)
 
 
 # ## Prepare Feature for Machine Learning
 
-# In[12]:
+# In[59]:
 
 
-data = df_norm_minmax.T
+#data = df_norm_minmax.T
+data = df_norm_zscore.T
 data.head(2)
 
 
-# In[17]:
+# # Drop feature with to many zeroes
+# eda = data.describe()
+# dropfeature = []
+# for i in range(116):
+#     x = eda.iloc[:,i]
+#     if x['25%'] == x['50%'] == 0:
+#     #if x['25%'] == 0:
+#         #print(x.name, x['25%'], x['50%'], x['75%'])
+#         dropfeature.append(str(x.name))
+# len(dropfeature)
+# data = data.drop(index = dropfeature)
 
-
-eda = data.describe()
-dropfeature = []
-for i in range(116):
-    x = eda.iloc[:,i]
-    if x['25%'] == x['50%'] == 0:
-    #if x['25%'] == 0:
-        #print(x.name, x['25%'], x['50%'], x['75%'])
-        dropfeature.append(str(x.name))
-len(dropfeature)
-data = data.drop(index = dropfeature)
-
-
-# In[ ]:
-
-
-data = data.groupby(level=0).mean()
-
-
-# In[ ]:
-
-
-plt.figure(figsize = (8,16))
-sns.heatmap(data.T)
-
-
-# In[ ]:
+# In[60]:
 
 
 #target
 #y = {'target': data.index.values}
-y = {'target': study}
+y = df_raw_target
 
 #feature
 x = data.values
 
-# Standardizing the features
+# Standardizing the features?
 x = StandardScaler().fit_transform(x)
 
 
-# In[ ]:
+# In[61]:
 
 
 pca = PCA(n_components=3)
 principalComponents = pca.fit_transform(x)
 principalDf = pd.DataFrame(data = principalComponents
              , columns = ['principal component 1', 'principal component 2', 'principal component 3'])
-principalDf
+principalDf.head(2)
 
 
-# In[ ]:
+# In[62]:
 
 
 finalDf = pd.concat([principalDf, pd.DataFrame(y)], axis=1)
 finalDf
 
 
-# In[ ]:
+# In[63]:
 
 
 fig = plt.figure(figsize = (8,8))
@@ -236,10 +244,10 @@ ax = fig.add_subplot(1,1,1)
 ax.set_xlabel('Principal Component 1', fontsize = 15)
 ax.set_ylabel('Principal Component 2', fontsize = 15)
 ax.set_title('2 component PCA', fontsize = 20)
-targets = finalDf.target.unique()
+targets = finalDf.Study.unique()
 colors = ['b', 'w', 'r', 'c', 'm', 'y', 'k', 'g']
 for target, color in zip(targets,colors):
-    indicesToKeep = finalDf['target'] == target
+    indicesToKeep = finalDf['Study'] == target
     ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1']
                , finalDf.loc[indicesToKeep, 'principal component 2']
                , c = color
@@ -253,7 +261,7 @@ ax.grid()
 plt.show()
 
 
-# In[ ]:
+# In[64]:
 
 
 fig = plt.figure(figsize = (8,8))
@@ -263,10 +271,10 @@ ax.set_xlabel('Principal Component 1', fontsize = 8)
 ax.set_ylabel('Principal Component 2', fontsize = 8)
 ax.set_zlabel('Principal Component 3', fontsize = 8)
 ax.set_title('3 component PCA', fontsize = 20)
-targets = finalDf.target.unique()
+targets = finalDf.Study.unique()
 colors = ['b', 'w', 'r', 'c', 'm', 'y', 'k', 'g']
 for target, color in zip(targets,colors):
-    indicesToKeep = finalDf['target'] == target
+    indicesToKeep = finalDf['Study'] == target
     ax.scatter(finalDf.loc[indicesToKeep, 'principal component 1']
                , finalDf.loc[indicesToKeep, 'principal component 2']
                , finalDf.loc[indicesToKeep, 'principal component 3']
